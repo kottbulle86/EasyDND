@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">TheSheetver4</string>
+    <string name="image1">image1</string>
+    <string name="image2">image2</string>
+    <string name="image3">image3</string>
+    <string name="image4">image4</string>
+    <string name="expanded">Expanded!</string>
+    <string name="hide">Hide</string>
+    <string name="backgroundmountain">backgroundMountain</string>
+    <string name="charactername">What is your name?</string>
+    <string name="characterrace">What race are you?</string>
+    <string name="characterbackground">What is your background?</string>
+    <string name="characterclass">Which is your class?</string>
+    <string name="charactertraits">Any traits?</string>
+    <string name="characterideals">Write down your ideals</string>
+    <string name="characterbonds">What bonds do you have?</string>
+    <string name="characterflaws">What flaws do you possess?</string>
+    <string name="charactertitle_name">Name</string>
+    <string name="charactertitle_race">Race</string>
+    <string name="charactertitle_class">Class</string>
+    <string name="charactertitle_background">Background</string>
+    <string name="charactertitle_traits">Traits</string>
+    <string name="charactertitle_ideals">Ideals</string>
+    <string name="charactertitle_bonds">Bonds</string>
+    <string name="charactertitle_flaws">Flaws</string>
+
+    <string name="default_value"></string>
+    <string name="saved_name">se.andreasmikaelsson.thesheetver4.Name</string>
+    <string name="saved_race">se.andreasmikaelsson.thesheetver4.RaceInt</string>
+    <string name="saved_class">se.andreasmikaelsson.thesheetver4.ClassInt</string>
+    <string name="saved_background">se.andreasmikaelsson.thesheetver4.BackgroundInt</string>
+    <string name="saved_traits">se.andreasmikaelsson.thesheetver4.Traits</string>
+    <string name="saved_ideals">se.andreasmikaelsson.thesheetver4.Ideals</string>
+    <string name="saved_bonds">se.andreasmikaelsson.thesheetver4.Bonds</string>
+    <string name="saved_flaws">se.andreasmikaelsson.thesheetver4.Flaws</string>
+
+    <string name="charactername_null"></string>
+    <string name="characterrace_null"></string>
+    <string name="characterclass_null"></string>
+    <string name="characterbackground_null"></string>
+    <string name="charactertraits_null"></string>
+    <string name="characterideals_null"></string>
+    <string name="characterbonds_null"></string>
+    <string name="characterflaws_null"></string>
+    <string name="roll">Roll!</string>
+    <string name="clear">CLEAR</string>
+
+    <string-array name="Races">
+        <item>Choose your race</item>
+        <item>Dwarf</item>
+        <item>Elf</item>
+        <item>Halfling</item>
+        <item>Human</item>
+        <item>Dragonborn</item>
+        <item>Gnome</item>
+        <item>Half-Elf</item>
+        <item>Half-Orc</item>
+        <item>Tiefling</item>
+    </string-array>
+
+    <string-array name="Subraces_Dwarf">
+        <item>Hill Dwarf</item>
+        <item>Mountain Dwarf</item>
+    </string-array>
+    <string-array name="Subraces_Elf">
+        <item>High Elf</item>
+        <item>Wood Elf</item>
+        <item>Dark Elf</item>
+    </string-array>
+    <string-array name="Subraces_Halfling">
+        <item>Lightfoot</item>
+        <item>Stout</item>
+    </string-array>
+    <string-array name="Subraces_Human">
+        <item></item>
+    </string-array>
+    <string-array name="Subraces_Dragonborn">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Brass</item>
+        <item>Bronze</item>
+        <item>Copper</item>
+        <item>Gold</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Silver</item>
+        <item>White</item>
+    </string-array>
+    <string-array name="Subraces_Gnome">
+        <item>Forest Gnome</item>
+        <item>Rock Gnome</item>
+    </string-array>
+    <string-array name="Subraces_HalfElf">
+        <item></item>
+    </string-array>
+    <string-array name="Subraces_HalfOrc">
+        <item></item>
+    </string-array>
+    <string-array name="Subraces_Tiefling">
+        <item></item>
+    </string-array>
+
+    <string-array name="Classes">
+        <item>Choose your class</item>
+        <item>Barbarian</item>
+        <item>Bard</item>
+        <item>Cleric</item>
+        <item>Druid</item>
+        <item>Fighter</item>
+        <item>Monk</item>
+        <item>Paladin</item>
+        <item>Ranger</item>
+        <item>Rouge</item>
+        <item>Sorcerer</item>
+        <item>Warlock</item>
+        <item>Wizard</item>
+    </string-array>
+
+    <string-array name="Multiclasses">
+        <item>Choose your multiclass</item>
+        <item>Barbarian</item>
+        <item>Bard</item>
+        <item>Cleric</item>
+        <item>Druid</item>
+        <item>Fighter</item>
+        <item>Monk</item>
+        <item>Paladin</item>
+        <item>Ranger</item>
+        <item>Rouge</item>
+        <item>Sorcerer</item>
+        <item>Warlock</item>
+        <item>Wizard</item>
+    </string-array>
+
+    <string-array name="Backgrounds">
+        <item>Choose your background</item>
+        <item>Acolyte</item>
+        <item>Charlatan</item>
+        <item>Criminal</item>
+        <item>Entertainer</item>
+        <item>Folk Hero</item>
+        <item>Guild Artisan</item>
+        <item>Hermit</item>
+        <item>Noble</item>
+        <item>Outlander</item>
+        <item>Sage</item>
+        <item>Sailor</item>
+        <item>Soldier</item>
+        <item>Urchin</item>
+    </string-array>
+
+    <string-array name="Str_Skills">
+        <item>Athletics</item>
+    </string-array>
+    <string-array name="Dex_Skills">
+        <item>Acrobatics</item>
+        <item>Sleight of Hand</item>
+        <item>Stealth</item>
+    </string-array>
+    <string-array name="Con_Skills"></string-array>
+    <string-array name="Int_Skills">
+        <item>Arcane</item>
+        <item>History</item>
+        <item>Investigation</item>
+        <item>Nature</item>
+        <item>Religion</item>
+    </string-array>
+    <string-array name="Wis_Skills">
+        <item>Animal Handling</item>
+        <item>Insight</item>
+        <item>Medicine</item>
+        <item>Perception</item>
+        <item>Survival</item>
+    </string-array>
+    <string-array name="Cha_Skills">
+        <item>Deception</item>
+        <item>Intimidation</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+    </string-array>
+
+    <!-- Dialog fragment strings -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_question">ABILITY</string>
+    <string name="score">SCORE</string>
+    <string name="mod">MOD</string>
+
+    <string name="dialog_skills_title">ABILITY SKILLS</string>
+
+    <string name="Str_title">STRENGTH</string>
+    <string name="Dex_title">DEXTERITY</string>
+    <string name="Con_title">CONSTITUTION</string>
+    <string name="Int_title">INTELLIGENCE</string>
+    <string name="Wis_title">WISDOM</string>
+    <string name="Cha_title">CHARISMA</string>
+    <string name="splashimage">splashimage</string>
+
+    <string-array name="Ability_Scores">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </string-array>
+
+    <string-array name="dice">
+        <item>D20</item>
+        <item>D12</item>
+        <item>D10</item>
+        <item>D8</item>
+        <item>D6</item>
+        <item>D4</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

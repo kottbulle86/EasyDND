@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/expandlayout3"
+    android:visibility="invisible">
+
+    <ImageView
+        android:id="@+id/expand3_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/high_ranger"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="25dp">
+
+        <Spinner
+            android:id="@+id/spinner_dice"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="25dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal" />
+
+        <ImageButton
+            android:id="@+id/dice_roll_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:layout_gravity="center"
+            android:src="@drawable/pentadice"
+            android:background="#00ffffff"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="RESULT"
+                android:textAlignment="textEnd"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/dice_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="ROLLS"
+                android:textAlignment="textEnd"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/dice_rolls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="SUM"
+                android:textAlignment="textEnd"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/dice_sum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="30sp"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/clear_rolls_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_gravity="center"
+            android:background="#00ffffff"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="@string/clear"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        android:id="@+id/button_hide3"
+        android:layout_gravity="center_horizontal|bottom"
+        android:textColor="#fff"
+        android:background="#00ffffff"/>
+</FrameLayout>
