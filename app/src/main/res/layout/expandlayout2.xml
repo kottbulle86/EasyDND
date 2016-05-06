@@ -9,7 +9,7 @@
         android:id="@+id/expand2_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_plains"
+        android:src="@drawable/high_plains_dark"
         android:scaleType="centerCrop" />
 
     <Button
@@ -21,218 +21,174 @@
         android:textColor="#FFF"
         android:background="#00ffffff"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="30dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-
-        <ImageView
-            android:id="@+id/imageView_str"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewStr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_str"
-            android:layout_alignTop="@+id/imageView_str"
-            android:layout_alignRight="@+id/imageView_str"
-            android:layout_alignBottom="@+id/imageView_str"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="STR"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView_dex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/imageView_str"
-            android:paddingTop="30dp"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewDex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_dex"
-            android:layout_alignTop="@+id/imageView_dex"
-            android:layout_alignRight="@+id/imageView_dex"
-            android:layout_alignBottom="@+id/imageView_dex"
-            android:paddingTop="30dp"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="DEX"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView_con"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/imageView_dex"
-            android:paddingTop="30dp"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewCon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_con"
-            android:layout_alignTop="@+id/imageView_con"
-            android:layout_alignRight="@+id/imageView_con"
-            android:layout_alignBottom="@+id/imageView_con"
-            android:paddingTop="30dp"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="CON"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView_int"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewInt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_int"
-            android:layout_alignTop="@+id/imageView_int"
-            android:layout_alignRight="@+id/imageView_int"
-            android:layout_alignBottom="@+id/imageView_int"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="INT"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView_wis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/imageView_str"
-            android:paddingTop="30dp"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewWis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_wis"
-            android:layout_alignTop="@+id/imageView_wis"
-            android:layout_alignRight="@+id/imageView_wis"
-            android:layout_alignBottom="@+id/imageView_wis"
-            android:paddingTop="30dp"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="INT"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView_cha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/imageView_dex"
-            android:paddingTop="30dp"
-            android:src="@drawable/abilityshape"/>
-
-        <TextView
-            android:id="@+id/textViewCha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_cha"
-            android:layout_alignTop="@+id/imageView_cha"
-            android:layout_alignRight="@+id/imageView_cha"
-            android:layout_alignBottom="@+id/imageView_cha"
-            android:paddingTop="30dp"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="CHA"
-            android:textColor="#FFF"
-            android:textSize="20dp" />
-
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingTop="30dp"
-            android:paddingBottom="90dp">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button_str"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#00ffffff"/>
+            <TextView
+                android:id="@+id/level_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_pb"
+                android:textColor="#FFF"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"/>
 
-            <Button
-                android:id="@+id/button_dex"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#00ffffff"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="30dp">
 
-            <Button
-                android:id="@+id/button_con"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#00ffffff"/>
+                <EditText
+                    android:id="@+id/xp_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#FFF"
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:hint="@string/hint_enter_xp" />
+
+                <TextView
+                    android:id="@+id/xp_lvl_divider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/slash"
+                    android:textColor="#FFF"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/lvl_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/underdash"
+                    android:textColor="#FFF"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/level_pb_divider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/slash"
+                    android:textColor="#FFF"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/pb_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/underdash"
+                    android:textColor="#FFF"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:paddingTop="30dp"
-            android:paddingBottom="90dp">
-
-            <Button
-                android:id="@+id/button_int"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            android:baselineAligned="false"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:background="#00ffffff"/>
+                android:paddingBottom="70dp">
 
-            <Button
-                android:id="@+id/button_wis"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#00ffffff"/>
+                <ImageButton
+                    android:id="@+id/button_str"
+                    android:src="@drawable/ability_shape_str"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
 
-            <Button
-                android:id="@+id/button_cha"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                <ImageButton
+                    android:id="@+id/button_dex"
+                    android:src="@drawable/ability_shape_dex"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
+
+                <ImageButton
+                    android:id="@+id/button_con"
+                    android:src="@drawable/ability_shape_con"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:background="#00ffffff"/>
+                android:paddingBottom="70dp">
+
+                <ImageButton
+                    android:id="@+id/button_int"
+                    android:src="@drawable/ability_shape_int"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
+
+                <ImageButton
+                    android:id="@+id/button_wis"
+                    android:src="@drawable/ability_shape_wis"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
+
+                <ImageButton
+                    android:id="@+id/button_cha"
+                    android:src="@drawable/ability_shape_cha"
+                    android:scaleType="fitCenter"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00ffffff"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

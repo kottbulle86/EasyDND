@@ -86,8 +86,29 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/spinnerClass"
+            android:id="@+id/spinnerSubrace"
             android:layout_below="@+id/spinnerRace"
+            android:layout_centerInParent="true"
+            android:dropDownWidth="wrap_content"
+            android:layout_alignEnd="@id/editTextName"
+            android:layout_alignStart="@id/editTextName" />
+
+        <TextView
+            android:id="@+id/textViewSubraceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/spinnerSubrace"
+            android:layout_alignTop="@id/spinnerSubrace"
+            android:gravity="end"
+            android:text="@string/charactertitle_subrace"
+            android:ems="8"
+            android:textColor="#fff"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/spinnerClass"
+            android:layout_below="@+id/spinnerSubrace"
             android:layout_centerInParent="true"
             android:dropDownWidth="wrap_content"
             android:layout_alignEnd="@id/editTextName"
@@ -116,9 +137,9 @@
             android:background="#00ffffff"/>
 
         <Spinner
+            android:id="@+id/spinnerBackground"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/spinnerBackground"
             android:layout_below="@+id/spinnerClass"
             android:layout_centerInParent="true"
             android:dropDownWidth="wrap_content"
