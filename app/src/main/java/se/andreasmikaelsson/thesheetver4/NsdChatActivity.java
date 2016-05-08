@@ -35,7 +35,7 @@ public class NsdChatActivity extends Activity {
     private TextView mStatusView;
     private Handler mUpdateHandler;
 
-    public static final String TAG = "NsdChat";
+    public static final String TAG = "WhisperChat";
 
     ChatConnection mConnection;
 
@@ -121,12 +121,12 @@ public class NsdChatActivity extends Activity {
         try {
             mNsdHelper.tearDown();
         } catch (Exception e) {
-            Log.e(TAG, "Error while destroying WhsiperActivity", e);
+            Log.e(TAG, "Error while destroying WhisperActivity", e);
         }
         try {
             mConnection.tearDown();
         } catch (Exception e) {
-            Log.e(TAG, "Error while destroying WhsiperActivity", e);
+            Log.e(TAG, "Error while destroying WhisperActivity", e);
         }
         super.onDestroy();
     }

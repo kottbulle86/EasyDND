@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/expandlayout2"
-    android:visibility="invisible"
-    android:background="@drawable/high_plains">
+    android:visibility="invisible">
 
     <ImageView
         android:id="@+id/expand2_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_plains_dark"
+        android:src="@drawable/background_old_paper"
         android:scaleType="centerCrop" />
 
     <Button

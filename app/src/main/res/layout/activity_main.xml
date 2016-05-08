@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/med_mountain_w_title"
+            android:background="@color/accent_material_light"
             android:contentDescription="@string/image1" />
 
         <ImageButton
@@ -26,24 +26,24 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/med_plains_w_title"
-            android:contentDescription="@string/image2" />
+            android:contentDescription="@string/image2"
+            android:background="@color/abc_search_url_text_normal" />
 
         <ImageButton
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/med_ranger_w_title"
-            android:contentDescription="@string/image3" />
+            android:contentDescription="@string/image3"
+            android:background="@color/colorPrimary" />
 
         <ImageButton
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/med_knight_w_title"
-            android:contentDescription="@string/image4" />
+            android:contentDescription="@string/image4"
+            android:background="@color/design_textinput_error_color_dark" />
 
     </LinearLayout>
 

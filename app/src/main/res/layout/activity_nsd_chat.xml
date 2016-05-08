@@ -31,24 +31,21 @@
             android:layout_width="96dp"
             android:layout_height="64dp"
             android:onClick="clickAdvertise"
-            android:text="@string/register"
-            android:background="@color/transparent_background" />
+            android:text="@string/register" />
 
         <Button
             android:id="@+id/discover_btn"
             android:layout_width="96dp"
             android:layout_height="64dp"
             android:onClick="clickDiscover"
-            android:text="@string/discover"
-            android:background="@color/transparent_background" />
+            android:text="@string/discover" />
 
         <Button
             android:id="@+id/connect_btn"
             android:layout_width="96dp"
             android:layout_height="64dp"
             android:onClick="clickConnect"
-            android:text="@string/connect"
-            android:background="@color/transparent_background" />
+            android:text="@string/connect" />
     </LinearLayout>
 
     <TextView

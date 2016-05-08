@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/expandlayout4"
     android:visibility="invisible">
 
@@ -8,7 +9,7 @@
         android:id="@+id/expand4_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_knight"
+        android:src="@drawable/background_old_paper"
         android:scaleType="centerCrop" />
 
     <Button

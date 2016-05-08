@@ -9,7 +9,7 @@
         android:id="@+id/expand1_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_mountaindark"
+        android:src="@drawable/background_old_paper"
         android:scaleType="centerCrop"
         android:contentDescription="@string/backgroundmountain" />
 
