@@ -1,51 +1,34 @@
 package se.andreasmikaelsson.thesheetver4;
-/*
- * Copyright (C) 2012 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.nsd.NsdServiceInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import se.andreasmikaelsson.thesheetver4.NsdHelper;
 
-        import android.app.Activity;
-        import android.net.nsd.NsdServiceInfo;
-        import android.os.Bundle;
-        import android.os.Handler;
-        import android.os.Message;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.EditText;
-        import android.widget.TextView;
-
-        import se.andreasmikaelsson.thesheetver4.NsdHelper;
-
-public class NsdChatActivity extends Activity {
-
+public class NsdChatActivity extends AppCompatActivity {
     NsdHelper mNsdHelper;
-
     private TextView mStatusView;
     private Handler mUpdateHandler;
-
-    public static final String TAG = "WhisperChat";
-
+    public static final String TAG = "NsdChat";
     ChatConnection mConnection;
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "Creating chat activity");
         setContentView(R.layout.activity_nsd_chat);
         mStatusView = (TextView) findViewById(R.id.status);
-
         mUpdateHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -53,38 +36,62 @@ public class NsdChatActivity extends Activity {
                 addChatLine(chatLine);
             }
         };
+        String titleKey = "title_key";
+        String title = "Whisper Chat";
+        String infoTextKey = "text_key";
+        String infoText = getString(R.string.whisper_infotext);
+        String whisperInfoCheckBoxKey = getString(R.string.saved_whisper_infocheckbox);
+        Boolean whisperCheckBox = loadCharacterDataBoolean(whisperInfoCheckBoxKey);
+        if (!whisperCheckBox) {
+            showInfoFragment(titleKey, title, infoTextKey, infoText);
+        }
+    }
 
-        mConnection = new ChatConnection(mUpdateHandler);
+    private void showInfoFragment(String titleKey, String title, String infoTextKey, String infoText) {
+        Bundle bundle = new Bundle();
+        bundle.putString(titleKey, title);
+        bundle.putString(infoTextKey, infoText);
+        DialogFragment newFragment = new InfoDialogFragment();
+        newFragment.setArguments(bundle);
+        newFragment.show(getSupportFragmentManager(), "infoText");
+    }
 
-        mNsdHelper = new NsdHelper(this);
-        mNsdHelper.initializeNsd();
+    public boolean loadCharacterDataBoolean(String key) {
 
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
+        return sharedPref.getBoolean(key, false);
     }
 
     public void clickAdvertise(View v) {
+        Toast toast1 = Toast.makeText(this, "Device registered!", Toast.LENGTH_LONG);
         // Register service
         if(mConnection.getLocalPort() > -1) {
             mNsdHelper.registerService(mConnection.getLocalPort());
+            toast1.show();
         } else {
             Log.d(TAG, "ServerSocket isn't bound.");
         }
     }
-
     public void clickDiscover(View v) {
+        Toast toast2 = Toast.makeText(this, "Searching...", Toast.LENGTH_LONG);
+        toast2.show();
         mNsdHelper.discoverServices();
     }
-
     public void clickConnect(View v) {
         NsdServiceInfo service = mNsdHelper.getChosenServiceInfo();
         if (service != null) {
             Log.d(TAG, "Connecting.");
+            Toast toast3 = Toast.makeText(this, "Connecting...", Toast.LENGTH_LONG);
+            toast3.show();
             mConnection.connectToServer(service.getHost(),
                     service.getPort());
         } else {
             Log.d(TAG, "No service to connect to!");
+            Toast toast4 = Toast.makeText(this, "No service to connect to!", Toast.LENGTH_LONG);
+            toast4.show();
         }
     }
-
     public void clickSend(View v) {
         EditText messageView = (EditText) this.findViewById(R.id.chatInput);
         if (messageView != null) {
@@ -95,39 +102,53 @@ public class NsdChatActivity extends Activity {
             messageView.setText("");
         }
     }
-
     public void addChatLine(String line) {
         mStatusView.append("\n" + line);
     }
-
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "Starting.");
+        mConnection = new ChatConnection(mUpdateHandler);
+        mNsdHelper = new NsdHelper(this);
+        mNsdHelper.initializeNsd();
+        super.onStart();
+    }
     @Override
     protected void onPause() {
+        Log.d(TAG, "Pausing.");
         if (mNsdHelper != null) {
             mNsdHelper.stopDiscovery();
         }
         super.onPause();
     }
-
     @Override
     protected void onResume() {
+        Log.d(TAG, "Resuming.");
         super.onResume();
         if (mNsdHelper != null) {
             mNsdHelper.discoverServices();
         }
     }
-
+    // For KitKat and earlier releases, it is necessary to remove the
+    // service registration when the application is stopped.  There's
+    // no guarantee that the onDestroy() method will be called (we're
+    // killable after onStop() returns) and the NSD service won't remove
+    // the registration for us if we're killed.
+    // In L and later, NsdService will automatically unregister us when
+    // our connection goes away when we're killed, so this step is
+    // optional (but recommended).
+    @Override
+    protected void onStop() {
+        Log.d(TAG, "Being stopped.");
+        mNsdHelper.tearDown();
+        mConnection.tearDown();
+        mNsdHelper = null;
+        mConnection = null;
+        super.onStop();
+    }
     @Override
     protected void onDestroy() {
-        try {
-            mNsdHelper.tearDown();
-        } catch (Exception e) {
-            Log.e(TAG, "Error while destroying WhisperActivity", e);
-        }
-        try {
-            mConnection.tearDown();
-        } catch (Exception e) {
-            Log.e(TAG, "Error while destroying WhisperActivity", e);
-        }
+        Log.d(TAG, "Being destroyed.");
         super.onDestroy();
     }
 }

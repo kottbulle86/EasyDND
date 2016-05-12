@@ -8,8 +8,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +30,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vstechlab.easyfonts.EasyFonts;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -38,6 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //information dialogfragment
+        String titleKey = "title_key";
+        String title = "Welcome!";
+        String infoTextKey = "text_key";
+        String infoText = getString(R.string.main_menu_infotext);
+        String mainMenuInfoCheckBoxKey = getString(R.string.saved_mainmenu_infocheckbox);
+        Boolean mainMenuCheckBox = loadCharacterDataBoolean(mainMenuInfoCheckBoxKey);
+        if (!mainMenuCheckBox) {
+            showInfoFragment(titleKey, title, infoTextKey, infoText);
+        }
+
+        //fab for NsdChatActivity (whisper)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +96,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Expand3 - dice simulator
         setupExpand3();
 
+        //Set fonts for textviews, edittexts etc. (saved in notes)
+        //setupFonts();
+
         loadCharacterDataSetup();
+    }
+
+    private void showInfoFragment(String titleKey, String title, String infoTextKey, String infoText) {
+        Bundle bundle = new Bundle();
+        bundle.putString(titleKey, title);
+        bundle.putString(infoTextKey, infoText);
+        DialogFragment newFragment = new InfoDialogFragment();
+        newFragment.setArguments(bundle);
+        newFragment.show(getSupportFragmentManager(), "infoText");
     }
 
     private void levelCalculator() {
@@ -219,9 +246,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
 
             if (mAccel > 12) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Dice rolled!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Dice rolled!", Toast.LENGTH_LONG);
                 toast.show();
-
+                ImageView animationTarget = (ImageView) findViewById(R.id.dice_roll_button);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.rotate_around_center_point_dice);
+                animationTarget.startAnimation(animation);
                 diceRoll();
             }
         }
@@ -286,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupExpand3() {
         Spinner spinnerDice = (Spinner) findViewById(R.id.spinner_dice);
         ArrayAdapter<CharSequence> adapterdice = ArrayAdapter.createFromResource(this,
-                R.array.dice, android.R.layout.simple_spinner_item);
+                R.array.dice, R.layout.ability_spinner_layout);
         spinnerDice.setAdapter(adapterdice);
 
         ImageButton rollDice = (ImageButton) findViewById(R.id.dice_roll_button);
@@ -330,17 +361,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setupSpinner() {
         final Spinner spinnerRace = (Spinner) findViewById(R.id.spinnerRace);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
-                R.array.Races, android.R.layout.simple_spinner_item);
+                R.array.Races, R.layout.character_spinner_layout);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRace.setAdapter(adapter1);
         Spinner spinnerClass = (Spinner) findViewById(R.id.spinnerClass);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.Classes, android.R.layout.simple_spinner_item);
+                R.array.Classes, R.layout.character_spinner_layout);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerClass.setAdapter(adapter2);
         Spinner spinnerBackground = (Spinner) findViewById(R.id.spinnerBackground);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
-                R.array.Backgrounds, android.R.layout.simple_spinner_item);
+                R.array.Backgrounds, R.layout.character_spinner_layout);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBackground.setAdapter(adapter3);
 
@@ -351,55 +382,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 switch (i) {
                     case 0:
                         ArrayAdapter<CharSequence> adapter10 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Dwarf, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Dwarf, R.layout.character_spinner_layout);
                         adapter10.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter10);
                         break;
                     case 1:
                         ArrayAdapter<CharSequence> adapter11 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Elf, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Elf, R.layout.character_spinner_layout);
                         adapter11.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter11);
                         break;
                     case 2:
                         ArrayAdapter<CharSequence> adapter12 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Halfling, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Halfling, R.layout.character_spinner_layout);
                         adapter12.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter12);
                         break;
                     case 3:
                         ArrayAdapter<CharSequence> adapter13 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Human, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Human, R.layout.character_spinner_layout);
                         adapter13.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter13);
                         break;
                     case 4:
                         ArrayAdapter<CharSequence> adapter14 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Dragonborn, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Dragonborn, R.layout.character_spinner_layout);
                         adapter14.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter14);
                         break;
                     case 5:
                         ArrayAdapter<CharSequence> adapter15 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Gnome, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Gnome, R.layout.character_spinner_layout);
                         adapter15.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter15);
                         break;
                     case 6:
                         ArrayAdapter<CharSequence> adapter16 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_HalfElf, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_HalfElf, R.layout.character_spinner_layout);
                         adapter16.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter16);
                         break;
                     case 7:
                         ArrayAdapter<CharSequence> adapter17 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_HalfOrc, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_HalfOrc, R.layout.character_spinner_layout);
                         adapter17.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter17);
                         break;
                     case 8:
                         ArrayAdapter<CharSequence> adapter18 = ArrayAdapter.createFromResource(getApplicationContext(),
-                                R.array.Subraces_Tiefling, android.R.layout.simple_spinner_item);
+                                R.array.Subraces_Tiefling, R.layout.character_spinner_layout);
                         adapter18.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerSubRace.setAdapter(adapter18);
                         break;
@@ -643,6 +674,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return sharedPref.getInt(key, defaultValueInt);
     }
 
+    public boolean loadCharacterDataBoolean(String key) {
+
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
+        return sharedPref.getBoolean(key, false);
+    }
+
     public static void expand(final View v, final View p) {
         p.measure(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
         final int targetHeight = p.getHeight();
@@ -706,6 +744,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        Handler mHandler = new Handler();
+        ImageView animationTarget;
+        Animation animation;
+
         ImageButton button1 = (ImageButton) findViewById(R.id.button1);
         ImageButton button2 = (ImageButton) findViewById(R.id.button2);
         ImageButton button3 = (ImageButton) findViewById(R.id.button3);
@@ -725,25 +767,82 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView result = (TextView) findViewById(R.id.dice_result);
         TextView rolls = (TextView) findViewById(R.id.dice_rolls);
         TextView sum = (TextView) findViewById(R.id.dice_sum);
-        Toast toast = Toast.makeText(getApplicationContext(), "Information saved!", Toast.LENGTH_LONG);
-        Toast toast2 = Toast.makeText(getApplicationContext(), "Dice rolled!", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), "Information saved!", Toast.LENGTH_SHORT);
+        //Toast toast2 = Toast.makeText(getApplicationContext(), "Dice rolled!", Toast.LENGTH_LONG);
         Toast toast3 = Toast.makeText(getApplicationContext(), "Cleared!", Toast.LENGTH_LONG);
         String pbKey = getString(R.string.saved_pb);
-        String pbString = loadCharacterDataString(pbKey, "");
+        final String pbString = loadCharacterDataString(pbKey, "");
+
+        final String titleKey = "title_key";
+        String title = null;
+        final String infoTextKey = "text_key";
+        String infoText = null;
 
         //Main menu switch
         switch (view.getId()) {
             case R.id.button1:
                 expand(findViewById(R.id.expandlayout1), findViewById(R.id.linearlayout_screen));
+                title = "Character information";
+                infoText = getString(R.string.expand1_infotext);
+                String Expand1InfoCheckBoxKey = getString(R.string.saved_expand1_infocheckbox);
+                Boolean Expand1CheckBox = loadCharacterDataBoolean(Expand1InfoCheckBoxKey);
+                if (!Expand1CheckBox) {
+                    final String finalTitle = title;
+                    final String finalInfoText = infoText;
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            showInfoFragment(titleKey, finalTitle, infoTextKey, finalInfoText);
+                        }
+                    }, 500);
+                }
                 break;
             case R.id.button2:
                 expand(findViewById(R.id.expandlayout2), findViewById(R.id.linearlayout_screen));
+                title = "Character statistics";
+                infoText = getString(R.string.expand2_infotext);
+                String Expand2InfoCheckBoxKey = getString(R.string.saved_expand2_infocheckbox);
+                Boolean Expand2CheckBox = loadCharacterDataBoolean(Expand2InfoCheckBoxKey);
+                if (!Expand2CheckBox) {
+                    final String finalTitle = title;
+                    final String finalInfoText = infoText;
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            showInfoFragment(titleKey, finalTitle, infoTextKey, finalInfoText);
+                        }
+                    }, 500);
+                }
                 break;
             case R.id.button3:
                 expand(findViewById(R.id.expandlayout3), findViewById(R.id.linearlayout_screen));
+                title = "Dice simulator";
+                infoText = getString(R.string.expand3_infotext);
+                String Expand3InfoCheckBoxKey = getString(R.string.saved_expand3_infocheckbox);
+                Boolean Expand3CheckBox = loadCharacterDataBoolean(Expand3InfoCheckBoxKey);
+                if (!Expand3CheckBox) {
+                    final String finalTitle = title;
+                    final String finalInfoText = infoText;
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            showInfoFragment(titleKey, finalTitle, infoTextKey, finalInfoText);
+                        }
+                    }, 500);
+                }
                 break;
             case R.id.button4:
                 expand(findViewById(R.id.expandlayout4), findViewById(R.id.linearlayout_screen));
+                title = "Unknown";
+                infoText = getString(R.string.expand4_infotext);
+                String Expand4InfoCheckBoxKey = getString(R.string.saved_expand4_infocheckbox);
+                Boolean Expand4CheckBox = loadCharacterDataBoolean(Expand4InfoCheckBoxKey);
+                if (!Expand4CheckBox) {
+                    final String finalTitle = title;
+                    final String finalInfoText = infoText;
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            showInfoFragment(titleKey, finalTitle, infoTextKey, finalInfoText);
+                        }
+                    }, 500);
+                }
                 break;
         }
         //Expand1 switch
@@ -784,22 +883,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Expand2 switch
         switch (view.getId()) {
             case R.id.button_str:
-                abilityView("str", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_str);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("str", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_dex:
-                abilityView("dex", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_dex);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("dex", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_con:
-                abilityView("con", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_con);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("con", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_int:
-                abilityView("int", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_int);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("int", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_wis:
-                abilityView("wis", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_wis);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("wis", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_cha:
-                abilityView("cha", pbString);
+                animationTarget = (ImageView) this.findViewById(R.id.button_cha);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                if (animationTarget != null) {
+                    animationTarget.startAnimation(animation);
+                }
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        abilityView("cha", pbString);
+                    }
+                }, 500);
                 break;
             case R.id.button_hide2:
                 collapse(findViewById(R.id.expandlayout2));
@@ -813,8 +966,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Expand3 switch
         switch (view.getId()) {
             case R.id.dice_roll_button:
+                animationTarget = (ImageView) this.findViewById(R.id.dice_roll_button);
+                animation = AnimationUtils.loadAnimation(this, R.anim.rotate_around_center_point_dice);
+                animationTarget.startAnimation(animation);
                 diceRoll();
-                toast2.show();
                 break;
             case R.id.clear_rolls_button:
                 rollCount = 0;

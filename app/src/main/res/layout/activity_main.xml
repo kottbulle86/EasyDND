@@ -1,59 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/framelayout_screen"
-    android:background="#FFF"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearlayout_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageButton
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/accent_material_light"
-            android:contentDescription="@string/image1" />
-
-        <ImageButton
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/image2"
-            android:background="@color/abc_search_url_text_normal" />
-
-        <ImageButton
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/image3"
-            android:background="@color/colorPrimary" />
-
-        <ImageButton
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/image4"
-            android:background="@color/design_textinput_error_color_dark" />
-
-    </LinearLayout>
-
-    <include layout="@layout/expandlayout1" />
-
-    <include layout="@layout/expandlayout2" />
-
-    <include layout="@layout/expandlayout3" />
-
-    <include layout="@layout/expandlayout4" />
+    <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -65,4 +20,4 @@
         android:background="@color/transparent_background"
         android:src="@drawable/abilityshape" />
 
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

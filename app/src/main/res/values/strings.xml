@@ -256,7 +256,8 @@
     <string name="saved_mod_cha">se.andreasmikaelsson.thesheetver4.ModCha</string>
 
     <!-- Dialog fragment strings -->
-    <string name="ok">OK &amp; Update</string>
+    <string name="ok">OK</string>
+    <string name="ok_update">OK &amp; Update</string>
     <string name="cancel">Cancel</string>
     <string name="dialog_question">ABILITY</string>
     <string name="score">SCORE</string>
@@ -330,5 +331,26 @@
     <string name="discover">Discover</string>
     <string name="register">Register</string>
     <string name="send">Whisper</string>
+    <string name="randomize_your_roll">Randomize your Roll!</string>
+
+    <!-- info fragment strings -->
+    <string name="saved_mainmenu_infocheckbox">se.andreasmikaelsson.thesheetver4.MainMenuInfoCheckbox</string>
+    <string name="main_menu_infotext">Hello and welcome to the Sheet! This is an app for all D&amp;D players out there! With this app you can store your character digitally, just fill in the character information in the different tabs! </string>
+
+    <string name="saved_expand1_infocheckbox">se.andreasmikaelsson.thesheetver4.Expand1InfoCheckbox</string>
+    <string name="expand1_infotext">In this tab you can enter your character information, such as name, class and race. Also, you can enter traits, bonds and flaws.</string>
+
+    <string name="saved_expand2_infocheckbox">se.andreasmikaelsson.thesheetver4.Expand2InfoCheckbox</string>
+    <string name="expand2_infotext">This is the statistics tab! Fill in your experience points (xp) and the app will calculate level and proficiency bonus (pb). Each ability is represented with a button, push to see skills for that ability and check proficiencies! Scores are updated when the "OK &amp; Update" button is pushed. </string>
+
+    <string name="saved_expand3_infocheckbox">se.andreasmikaelsson.thesheetver4.Expand3InfoCheckbox</string>
+    <string name="expand3_infotext">Forgot your dice? No problem, this tab is a dice simulator where you can throw some dice! Choose a die and press the dice button or shake to throw! </string>
+
+    <string name="saved_expand4_infocheckbox">se.andreasmikaelsson.thesheetver4.Expand4InfoCheckbox</string>
+    <string name="expand4_infotext">This does nothing yet...</string>
+
+    <string name="saved_whisper_infocheckbox">se.andreasmikaelsson.thesheetver4.WhisperInfoCheckbox</string>
+    <string name="whisper_infotext">This is the whisper chat, here you can connect to other the Sheet users and send them whispers. The chat uses android NSD (network service discovery) to connect to other devices on the same wifi. One acts as a host (register) and the rest discover it and connect (the host also connects). Viola!</string>
+    <string name="info_checkbox_text">Don\'t show this again</string>
 
 </resources>

@@ -6,12 +6,11 @@
     <TextView
         android:id="@+id/ability_title_text"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="#FFFFBB33"
+        android:layout_height="10dp"
+        android:background="#FFFFFFFF"
         android:textColor="#FFFFFFFF"
         android:contentDescription="@string/app_name"
-        android:gravity="center"
-        android:textSize="30sp" />
+        android:gravity="center" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +24,8 @@
             android:paddingLeft="16dp"
             android:layout_alignParentLeft="true"
             android:text="@string/score"
-            android:textSize="40sp"
+            android:textSize="30sp"
+            android:textColor="#FFFFFFFF"
             />
         <Spinner
             android:id="@+id/spinner_ability_score"
@@ -43,7 +43,8 @@
             android:layout_alignEnd="@id/ability_score_title"
             android:layout_below="@id/ability_score_title"
             android:text="@string/mod"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textColor="#FFFFFFFF"/>
         <TextView
             android:id="@+id/ability_mod"
             android:layout_width="wrap_content"
@@ -56,7 +57,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Randomize your Roll!"
+        android:text="@string/randomize_your_roll"
+        android:textColor="#FFFFFFFF"
         android:id="@+id/button_roll_abilityscore"
         android:layout_gravity="end"
         android:paddingRight="16dp"

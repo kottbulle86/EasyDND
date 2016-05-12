@@ -16,21 +16,17 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Objects;
 import java.util.Random;
 
 import static se.andreasmikaelsson.thesheetver4.R.array.Cha_Skills;
 import static se.andreasmikaelsson.thesheetver4.R.array.Dex_Skills;
 import static se.andreasmikaelsson.thesheetver4.R.array.Int_Skills;
 import static se.andreasmikaelsson.thesheetver4.R.array.Save_Cha_SkillsB;
-import static se.andreasmikaelsson.thesheetver4.R.array.Save_Cha_SkillsS;
 import static se.andreasmikaelsson.thesheetver4.R.array.Save_Dex_SkillsB;
-import static se.andreasmikaelsson.thesheetver4.R.array.Save_Dex_SkillsS;
 import static se.andreasmikaelsson.thesheetver4.R.array.Save_Int_SkillsB;
-import static se.andreasmikaelsson.thesheetver4.R.array.Save_Int_SkillsS;
 import static se.andreasmikaelsson.thesheetver4.R.array.Save_Str_SkillsB;
-import static se.andreasmikaelsson.thesheetver4.R.array.Save_Str_SkillsS;
 import static se.andreasmikaelsson.thesheetver4.R.array.Save_Wis_SkillsB;
-import static se.andreasmikaelsson.thesheetver4.R.array.Save_Wis_SkillsS;
 import static se.andreasmikaelsson.thesheetver4.R.array.Str_Skills;
 import static se.andreasmikaelsson.thesheetver4.R.array.Wis_Skills;
 
@@ -44,7 +40,10 @@ public class AbilityDialogFragment extends DialogFragment {
         String[] skillsScores = new String[0];
         final String ability = getArguments().getString("bundleKey");
         final String pb = getArguments().getString("pbBundleKey");
-        int pbInt = Integer.valueOf(pb);
+        int pbInt = 0;
+        if (!Objects.equals(pb, "")) {
+            pbInt = Integer.valueOf(pb);
+        }
         String[] skillsNameArray = new String[0];
         String[] skillsKeyArrayB = new String[0];
         String abilityKey = null;
@@ -54,7 +53,7 @@ public class AbilityDialogFragment extends DialogFragment {
         //Switch that determines which ability button was pushed and declares variables
         switch (ability) {
             case "str":
-                Title = "STRENGTH";
+                Title = "Set skill proficiencies - STRENGTH";
                 // Boolean array for initial selected items
                 checkedSkills = new boolean[]{
                         false // Athletics
@@ -70,7 +69,7 @@ public class AbilityDialogFragment extends DialogFragment {
                 modKey = getString(R.string.saved_mod_str);
                 break;
             case "dex":
-                Title = "DEXTERITY";
+                Title = "Set skill proficiencies - DEXTERITY";
                 // Boolean array for initial selected items
                 checkedSkills = new boolean[]{
                         false, // Acrobatics
@@ -96,7 +95,7 @@ public class AbilityDialogFragment extends DialogFragment {
                 modKey = getString(R.string.saved_mod_con);
                 break;
             case "int":
-                Title = "INTELLIGENCE";
+                Title = "Set skill proficiencies - INTELLIGENCE";
                 // Boolean array for initial selected items
                 checkedSkills = new boolean[]{
                         false, // Arcane
@@ -119,7 +118,7 @@ public class AbilityDialogFragment extends DialogFragment {
                 modKey = getString(R.string.saved_mod_int);
                 break;
             case "wis":
-                Title = "WISDOM";
+                Title = "Set skill proficiencies - WISDOM";
                 // Boolean array for initial selected items
                 checkedSkills = new boolean[]{
                         false, // Animal Handling
@@ -142,7 +141,7 @@ public class AbilityDialogFragment extends DialogFragment {
                 modKey = getString(R.string.saved_mod_wis);
                 break;
             case "cha":
-                Title = "CHARISMA";
+                Title = "Set skill proficiencies - CHARISMA";
                 // Boolean array for initial selected items
                 checkedSkills = new boolean[]{
                         false, // Deception
@@ -184,15 +183,15 @@ public class AbilityDialogFragment extends DialogFragment {
         //Inflate fragment
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final LinearLayout view = (LinearLayout) inflater.inflate(R.layout.ability_dialog, null);
-        final TextView abilityTitle = (TextView) view.findViewById(R.id.ability_title_text);
-        abilityTitle.setText(Title);
+        //final TextView abilityTitle = (TextView) view.findViewById(R.id.ability_title_text);
+        //abilityTitle.setText(Title);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         final TextView abilityMod = (TextView) view.findViewById(R.id.ability_mod);
         final Spinner spinnerScore = (Spinner) view.findViewById(R.id.spinner_ability_score);
         final ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(),
-                R.array.Ability_Scores, R.layout.spinner_layout);
-        adapter1.setDropDownViewResource(R.layout.spinner_layout);
+                R.array.Ability_Scores, R.layout.ability_spinner_layout);
+        adapter1.setDropDownViewResource(R.layout.ability_spinner_layout);
         spinnerScore.setAdapter(adapter1);
 
         //Set loaded spinner value
@@ -277,7 +276,7 @@ public class AbilityDialogFragment extends DialogFragment {
         final boolean[] finalCheckedSkills = checkedSkills;
         final String[] finalSkillsKeyArrayB = skillsKeyArrayB;
         builder.setView(view)
-            .setTitle(R.string.dialog_skills_title)
+            .setTitle(Title)
             .setMultiChoiceItems(skillsNameArrayMod, checkedSkills,
                 new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
@@ -290,7 +289,7 @@ public class AbilityDialogFragment extends DialogFragment {
                         }
                     }
                 })
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok_update, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // OK press
                         for (int i = 0; i < finalCheckedSkills.length; i++) {

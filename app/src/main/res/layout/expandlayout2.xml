@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/expandlayout2"
     android:visibility="invisible">
 
@@ -9,8 +10,13 @@
         android:id="@+id/expand2_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_old_paper"
-        android:scaleType="centerCrop" />
+        android:background="@color/abc_search_url_text_normal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/vector_shield"/>
 
     <Button
         android:layout_width="match_parent"
