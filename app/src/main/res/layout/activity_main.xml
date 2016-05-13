@@ -1,58 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/framelayout_screen"
-    android:background="#FFF"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearlayout_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <include layout="@layout/content_main" />
 
-        <ImageButton
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/med_mountain_w_title"
-            android:contentDescription="@string/image1" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@color/transparent_background"
+        android:src="@drawable/abilityshape" />
 
-        <ImageButton
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/med_plains_w_title"
-            android:contentDescription="@string/image2" />
-
-        <ImageButton
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/med_ranger_w_title"
-            android:contentDescription="@string/image3" />
-
-        <ImageButton
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/med_knight_w_title"
-            android:contentDescription="@string/image4" />
-
-    </LinearLayout>
-
-    <include layout="@layout/expandlayout1" />
-
-    <include layout="@layout/expandlayout2" />
-
-    <include layout="@layout/expandlayout3" />
-
-    <include layout="@layout/expandlayout4" />
-
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/expandlayout3"
     android:visibility="invisible">
 
@@ -8,12 +10,13 @@
         android:id="@+id/expand3_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_ranger"
-        android:scaleType="centerCrop" />
+        android:src="@color/colorPrimary" />
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/vector_swords"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
             android:layout_gravity="center"
-            android:src="@drawable/pentadice"
+            android:src="@drawable/abilityshape"
             android:background="#00ffffff"/>
 
         <LinearLayout

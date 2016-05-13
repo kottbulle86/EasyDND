@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/expandlayout1"
     android:visibility="invisible">
 
@@ -9,9 +10,13 @@
         android:id="@+id/expand1_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/high_mountaindark"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/backgroundmountain" />
+        android:background="@color/accent_material_light"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/vector_dragon"/>
 
     <Button
         android:layout_width="match_parent"
@@ -86,8 +91,29 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/spinnerClass"
+            android:id="@+id/spinnerSubrace"
             android:layout_below="@+id/spinnerRace"
+            android:layout_centerInParent="true"
+            android:dropDownWidth="wrap_content"
+            android:layout_alignEnd="@id/editTextName"
+            android:layout_alignStart="@id/editTextName" />
+
+        <TextView
+            android:id="@+id/textViewSubraceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/spinnerSubrace"
+            android:layout_alignTop="@id/spinnerSubrace"
+            android:gravity="end"
+            android:text="@string/charactertitle_subrace"
+            android:ems="8"
+            android:textColor="#fff"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/spinnerClass"
+            android:layout_below="@+id/spinnerSubrace"
             android:layout_centerInParent="true"
             android:dropDownWidth="wrap_content"
             android:layout_alignEnd="@id/editTextName"
@@ -116,9 +142,9 @@
             android:background="#00ffffff"/>
 
         <Spinner
+            android:id="@+id/spinnerBackground"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/spinnerBackground"
             android:layout_below="@+id/spinnerClass"
             android:layout_centerInParent="true"
             android:dropDownWidth="wrap_content"
