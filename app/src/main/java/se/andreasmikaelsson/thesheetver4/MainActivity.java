@@ -34,6 +34,11 @@ import com.vstechlab.easyfonts.EasyFonts;
 
 import java.util.Random;
 
+/*
+MainActivity - a menu activity that also holds all expandable/collapsable views:
+expandlayout1 - 4.
+ */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -70,12 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
-        //TEMP CLEAR BUTTON
+        //TEMP CLEAR BUTTON - for test purposes
         Button clearShardPref = (Button) findViewById(R.id.button_clear_sharedpref);
         assert clearShardPref != null;
         clearShardPref.setOnClickListener(this);
 
-        // Spinners in expand-layout1
+        // Spinners in expandlayout1
         setupSpinner();
 
         // Calculates screen height and sets expand-layouts to that height.
@@ -84,16 +89,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Main menu buttons and hide buttons
         setupImageButtons();
 
-        //Expand1 - roll buttons
+        //Expandlayout1 - roll buttons
         setupRollButtons();
 
-        //Expand2 XP, level and PB
+        //Expandlayout2 XP, level and PB
         levelCalculator();
 
-        //Expand2 - ability buttons
+        //Expandlayout2 - ability buttons
         setupAbilityButtons();
 
-        //Expand3 - dice simulator
+        //Expandlayout3 - dice simulator
         setupExpand3();
 
         //Set fonts for textviews, edittexts etc. (saved in notes)
