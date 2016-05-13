@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/framelayout_screen"
     android:background="#FFF"
     tools:context=".MainActivity">
@@ -19,6 +20,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/accent_material_light"
+            app:srcCompat="@drawable/vector_dragon"
+            android:scaleType="fitCenter"
             android:contentDescription="@string/image1" />
 
         <ImageButton
@@ -27,7 +30,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/image2"
-            android:background="@color/abc_search_url_text_normal" />
+            android:background="@color/abc_search_url_text_normal"
+            app:srcCompat="@drawable/vector_shield"
+            android:scaleType="fitCenter"/>
 
         <ImageButton
             android:id="@+id/button3"
@@ -35,7 +40,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/image3"
-            android:background="@color/colorPrimary" />
+            android:background="@color/colorPrimary"
+            app:srcCompat="@drawable/vector_swords"
+            android:scaleType="fitCenter"/>
 
         <ImageButton
             android:id="@+id/button4"
@@ -43,7 +50,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/image4"
-            android:background="@color/button_material_dark" />
+            android:background="@color/button_material_dark"
+            app:srcCompat="@drawable/vector_eagle"
+            android:scaleType="fitCenter"/>
 
     </LinearLayout>
 
