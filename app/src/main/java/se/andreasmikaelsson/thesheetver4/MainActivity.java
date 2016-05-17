@@ -75,11 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
-        //TEMP CLEAR BUTTON - for test purposes
-        Button clearShardPref = (Button) findViewById(R.id.button_clear_sharedpref);
-        assert clearShardPref != null;
-        clearShardPref.setOnClickListener(this);
-
         // Spinners in expandlayout1
         setupSpinner();
 
@@ -101,10 +96,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Expandlayout3 - dice simulator
         setupExpand3();
 
+        //Expandlayout4 - combat
+        setupExpand4();
+
         //Set fonts for textviews, edittexts etc. (saved in notes)
         //setupFonts();
 
         loadCharacterDataSetup();
+    }
+
+    private void setupExpand4() {
+        Button addItem = (Button) findViewById(R.id.button_add_item);
+        addItem.setOnClickListener(this);
+    }
+
+    private void itemFragment() {
+        DialogFragment newFragment = new ItemFragment();
+        newFragment.show(getSupportFragmentManager(), "addItem");
     }
 
     private void showInfoFragment(String titleKey, String title, String infoTextKey, String infoText) {
@@ -1009,8 +1017,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 button4.setEnabled(true);
                 toast.show();
                 break;
-            case R.id.button_clear_sharedpref:
-                clearSharedPref();
+            case R.id.button_add_item:
+                itemFragment();
                 break;
         }
     }

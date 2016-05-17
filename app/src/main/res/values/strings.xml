@@ -353,4 +353,52 @@
     <string name="whisper_infotext">This is the whisper chat, here you can connect to other the Sheet users and send them whispers. The chat uses android NSD (network service discovery) to connect to other devices on the same wifi. One acts as a host (register) and the rest discover it and connect (the host also connects). Viola!</string>
     <string name="info_checkbox_text">Don\'t show this again</string>
 
+    <!-- item fragment strings -->
+    <string name="HP_title">Max HP / Temp HP / Current HP</string>
+    <string name="enter_max">Enter max</string>
+    <string name="enter_temp">temp</string>
+    <string name="enter_current">current</string>
+    <string name="ac_initiative_speed">Armor Class / Initiative / Speed</string>
+    <string name="enter_ac">Enter AC</string>
+    <string name="enter_initiative">initiative</string>
+    <string name="enter_speed">speed</string>
+    <string name="add_item">+ Add item</string>
+    <string name="item_type_title">Item type</string>
+    <string name="weapon_name_title">Weapon name</string>
+    <string name="enter_weapon_name">Enter weapon name</string>
+    <string name="attack_bonus_title">Attack bonus</string>
+    <string name="enter_attack_bonus">Enter attack bonus</string>
+    <string name="damage_title">Damage</string>
+    <string name="enter_damage">Enter damage</string>
+    <string name="spell_name_title">Spell name</string>
+    <string name="enter_spell_name">Enter spell name</string>
+    <string name="spell_attack_bonus_title">Spell attack bonus</string>
+    <string name="spell_description_title">Spell description</string>
+    <string name="enter_spell_description">Enter spell description</string>
+    <string name="spell_dc_title">Spell DC</string>
+    <string name="enter_spell_dc">Enter spell DC</string>
+    <string name="action_name_title">Action name</string>
+    <string name="enter_action_name">Enter action name</string>
+    <string name="action_attack_bonus_title">Action attack bonus</string>
+    <string name="action_dc_title">Action DC</string>
+    <string name="enter_action_DC">Enter action DC</string>
+    <string name="action_description_title">Action description</string>
+    <string name="enter_action_description">Enter action description</string>
+    <string name="armor_name_title">Armor name</string>
+    <string name="enter_armor_name">Enter armor name</string>
+    <string name="armor_AC_title">Armor AC</string>
+    <string name="enter_armor_ac">Enter armor AC</string>
+    <string name="armor_description_title">Armor description</string>
+    <string name="enter_armor_desc">Enter armor description</string>
+    <string-array name="spinner_add_item">
+        <item>Weapon</item>
+        <item>Spell</item>
+        <item>Action</item>
+        <item>Armor</item>
+        <item>Accessory</item>
+        <item>Gold/Silver/Copper</item>
+        <item>Feat</item>
+        <item>Misc</item>
+    </string-array>
+
 </resources>
