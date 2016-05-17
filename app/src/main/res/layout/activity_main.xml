@@ -18,6 +18,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:background="@color/transparent_background"
-        android:src="@drawable/abilityshape" />
+        app:srcCompat="@drawable/vector_ability_shape" />
 
 </android.support.design.widget.CoordinatorLayout>
