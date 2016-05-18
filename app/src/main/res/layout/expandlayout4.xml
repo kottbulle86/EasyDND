@@ -203,6 +203,8 @@
             android:textColor="#fff"
             android:background="#00ffffff"/>
 
+        <include layout="@layout/expand4_fragment_container" />
+
     </LinearLayout>
 
 </FrameLayout>

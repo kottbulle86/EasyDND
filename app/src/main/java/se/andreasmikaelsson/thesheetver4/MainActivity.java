@@ -30,8 +30,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.vstechlab.easyfonts.EasyFonts;
-
 import java.util.Random;
 
 /*
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void itemFragment() {
-        DialogFragment newFragment = new ItemFragment();
+        DialogFragment newFragment = new AddItemFragment();
         newFragment.show(getSupportFragmentManager(), "addItem");
     }
 
