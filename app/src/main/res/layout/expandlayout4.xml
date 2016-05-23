@@ -18,95 +18,15 @@
         android:layout_gravity="center"
         app:srcCompat="@drawable/vector_eagle"/>
 
-    <Button
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hide"
-        android:id="@+id/button_hide4"
-        android:layout_gravity="center_horizontal|bottom"
-        android:textColor="#fff"
-        android:background="#00ffffff"/>
-
-    <LinearLayout
-        android:id="@+id/expand4_items_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/hp_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/HP_title"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingLeft="20dp"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/expand4_items_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="30dp">
-
-            <EditText
-                android:id="@+id/max_hp_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:inputType="number"
-                android:hint="@string/enter_max" />
-
-            <TextView
-                android:id="@+id/max_temp_divider"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/slash"
-                android:textColor="#FFF"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/temp_hp_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:inputType="number"
-                android:hint="@string/enter_temp" />
-
-            <TextView
-                android:id="@+id/temp_current_divider"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/slash"
-                android:textColor="#FFF"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/current_hp_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:inputType="number"
-                android:hint="@string/enter_current" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+            android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,10 +34,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/AC_title"
+                android:id="@+id/hp_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ac_initiative_speed"
+                android:text="@string/HP_title"
                 android:textColor="#FFF"
                 android:textSize="20sp"
                 android:gravity="center"
@@ -132,17 +52,17 @@
                 android:paddingLeft="30dp">
 
                 <EditText
-                    android:id="@+id/AC_value"
+                    android:id="@+id/max_hp_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:textColor="#FFF"
                     android:textSize="20sp"
                     android:inputType="number"
-                    android:hint="@string/enter_ac" />
+                    android:hint="@string/enter_max" />
 
                 <TextView
-                    android:id="@+id/AC_init_divider"
+                    android:id="@+id/max_temp_divider"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -151,17 +71,17 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/Init_value"
+                    android:id="@+id/temp_hp_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:textColor="#FFF"
                     android:textSize="20sp"
                     android:inputType="number"
-                    android:hint="@string/enter_initiative" />
+                    android:hint="@string/enter_temp" />
 
                 <TextView
-                    android:id="@+id/init_speed_divider"
+                    android:id="@+id/temp_current_divider"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -170,41 +90,127 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/speed_value"
+                    android:id="@+id/current_hp_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:textColor="#FFF"
                     android:textSize="20sp"
                     android:inputType="number"
-                    android:hint="@string/enter_speed" />
+                    android:hint="@string/enter_current" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/Items_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Items"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingLeft="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_item"
-            android:id="@+id/button_add_item"
-            android:layout_gravity="center_horizontal|top"
-            android:textColor="#fff"
-            android:background="#00ffffff"/>
+                <TextView
+                    android:id="@+id/AC_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ac_initiative_speed"
+                    android:textColor="#FFF"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="20dp"/>
 
-        <include layout="@layout/expand4_fragment_container" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30dp">
 
-    </LinearLayout>
+                    <EditText
+                        android:id="@+id/AC_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:inputType="number"
+                        android:hint="@string/enter_ac" />
+
+                    <TextView
+                        android:id="@+id/AC_init_divider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/slash"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/Init_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:inputType="number"
+                        android:hint="@string/enter_initiative" />
+
+                    <TextView
+                        android:id="@+id/init_speed_divider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/slash"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/speed_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:inputType="number"
+                        android:hint="@string/enter_speed" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Items_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Items"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_item"
+                android:id="@+id/button_add_item"
+                android:layout_gravity="center_horizontal|top"
+                android:textColor="#fff"
+                android:background="#00ffffff"/>
+
+            <include layout="@layout/expand4_fragment_container" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        android:id="@+id/button_hide4"
+        android:layout_gravity="center|bottom"
+        android:textColor="#fff"
+        android:background="#00ffffff"/>
 
 </FrameLayout>

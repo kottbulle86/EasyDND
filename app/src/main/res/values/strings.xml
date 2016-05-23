@@ -401,7 +401,12 @@
         <item>Misc</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_weapon_description">Enter weapon description</string>
+    <string name="weapon_description_title">Description</string>
+    <string name="hit_title">Hit: </string>
+    <string name="dmg_title">Dmg: </string>
+    <string name="description_title">Description: </string>
+    <string name="dc_title">DC: </string>
 
 </resources>

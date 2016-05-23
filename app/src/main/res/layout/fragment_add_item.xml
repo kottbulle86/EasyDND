@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".AddItemFragment">
 
     <TextView
@@ -72,6 +71,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText_weapon_damage"
                 android:hint="@string/enter_damage"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weapon_description_title"
+                android:id="@+id/textView_weapon_desc"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_weapon_desc"
+                android:hint="@string/enter_weapon_description"/>
 
         </LinearLayout>
 
