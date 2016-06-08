@@ -36,10 +36,11 @@
             android:id="@+id/dice_roll_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
             android:layout_gravity="center"
-            android:src="@drawable/abilityshape"
-            android:background="#00ffffff"/>
+            android:padding="25dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/vector_ability_shape"
+            android:background="@color/transparent_background"/>
 
         <LinearLayout
             android:layout_width="match_parent"

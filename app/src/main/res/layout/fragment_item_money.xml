@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:background="#ac9811"
+    tools:context=".ItemMoneyFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            app:srcCompat="@drawable/vector_ability_shape"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/fragment_item_currency_title"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:text="@string/currency_title"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fragment_item_gold_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/gp_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_gold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fragment_item_silver_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/sp_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_silver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fragment_item_copper_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/cp_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_copper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/remove_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+</LinearLayout>

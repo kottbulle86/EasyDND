@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -30,9 +33,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.vstechlab.easyfonts.EasyFonts;
-
 import java.util.Random;
+
+import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
 
 /*
 MainActivity - a menu activity that also holds all expandable/collapsable views:
@@ -75,11 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
-        //TEMP CLEAR BUTTON - for test purposes
-        Button clearShardPref = (Button) findViewById(R.id.button_clear_sharedpref);
-        assert clearShardPref != null;
-        clearShardPref.setOnClickListener(this);
-
         // Spinners in expandlayout1
         setupSpinner();
 
@@ -101,10 +99,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Expandlayout3 - dice simulator
         setupExpand3();
 
+        //Expandlayout4 - combat
+        setupExpand4();
+
         //Set fonts for textviews, edittexts etc. (saved in notes)
         //setupFonts();
 
         loadCharacterDataSetup();
+    }
+
+    private void setupExpand4() {
+        Button addItem = (Button) findViewById(R.id.button_add_item);
+        addItem.setOnClickListener(this);
+    }
+
+    private void itemFragment() {
+        DialogFragment newFragment = new AddItemFragment();
+        newFragment.show(getSupportFragmentManager(), "addItem");
+    }
+
+    public void setupRemoveItemButton(String fragName) {
+        Log.d("fragName: ", fragName);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        int removeActionButtonID = sharedPref.getInt(fragName, 0);
+        Log.d("buttonID: ", String.valueOf(removeActionButtonID));
+        Button removeActionButton = (Button) findViewById(removeActionButtonID);
+        if (removeActionButton != null) {
+            removeActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int id = view.getId();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title_key", "Remove item");
+                    bundle.putString("text_key", "Do you wish to remove this item?");
+                    bundle.putInt("buttonID", id);
+                    DialogFragment newFragment = new RemoveDialogFragment();
+                    newFragment.setArguments(bundle);
+                    newFragment.show(getSupportFragmentManager(), "infoText");
+                }
+            });
+        }
     }
 
     private void showInfoFragment(String titleKey, String title, String infoTextKey, String infoText) {
@@ -461,7 +495,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rollBackground.setOnClickListener(this);
     }
 
-        public int randomItemStringArray(String[] s) {
+    public int randomItemStringArray(String[] s) {
         int idx = new Random().nextInt(s.length);
         String random = (s[idx]);
         return idx;
@@ -567,14 +601,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-        public void saveCharacterDataString(String key, String value) {
+    public void saveCharacterDataString(String key, String value) {
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(key, value);
         editor.apply();
     }
 
-        public void saveCharacterDataInt(String key, int value) {
+    public void saveCharacterDataInt(String key, int value) {
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(key, value);
@@ -667,14 +701,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-        public String loadCharacterDataString(String key, String defaultValueString) {
+    public String loadCharacterDataString(String key, String defaultValueString) {
 
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
 
         return sharedPref.getString(key, defaultValueString);
     }
 
-        public int loadCharacterDataInt(String key, int defaultValueInt) {
+    public int loadCharacterDataInt(String key, int defaultValueInt) {
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getInt(key, defaultValueInt);
     }
@@ -773,7 +807,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView rolls = (TextView) findViewById(R.id.dice_rolls);
         TextView sum = (TextView) findViewById(R.id.dice_sum);
         Toast toast = Toast.makeText(getApplicationContext(), "Information saved!", Toast.LENGTH_SHORT);
-        //Toast toast2 = Toast.makeText(getApplicationContext(), "Dice rolled!", Toast.LENGTH_LONG);
         Toast toast3 = Toast.makeText(getApplicationContext(), "Cleared!", Toast.LENGTH_LONG);
         String pbKey = getString(R.string.saved_pb);
         final String pbString = loadCharacterDataString(pbKey, "");
@@ -1009,8 +1042,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 button4.setEnabled(true);
                 toast.show();
                 break;
-            case R.id.button_clear_sharedpref:
-                clearSharedPref();
+            case R.id.button_add_item:
+                itemFragment();
                 break;
         }
     }

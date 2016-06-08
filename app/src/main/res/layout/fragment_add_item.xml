@@ -1,0 +1,329 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/add_item_background"
+    tools:context=".AddItemFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_type_title"
+        android:id="@+id/textView_item_type"
+        android:layout_gravity="left|top"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinner_item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Spinner>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_item_weapon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weapon_name_title"
+                android:id="@+id/textView_weapon_name"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_weapon_name"
+                android:hint="@string/enter_weapon_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attack_bonus_title"
+                android:id="@+id/textView_weapon_attack_bonus"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_weapon_attack_bonus"
+                android:hint="@string/enter_attack_bonus"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/damage_title"
+                android:id="@+id/textView_weapon_damage"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_weapon_damage"
+                android:hint="@string/enter_damage"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weapon_description_title"
+                android:id="@+id/textView_weapon_desc"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_weapon_desc"
+                android:hint="@string/enter_weapon_description"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_item_spell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spell_name_title"
+                android:id="@+id/textView_spell_name"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_spell_name"
+                android:hint="@string/enter_spell_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spell_attack_bonus_title"
+                android:id="@+id/textView_spell_attack_bonus"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_spell_attack_bonus"
+                android:hint="@string/enter_attack_bonus"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spell_dc_title"
+                android:id="@+id/textView_spell_DC"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_spell_DC"
+                android:hint="@string/enter_spell_dc"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spell_description_title"
+                android:id="@+id/textView_spell_desc"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_spell_desc"
+                android:hint="@string/enter_spell_description"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_item_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_name_title"
+                android:id="@+id/textView_action_name"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_action_name"
+                android:hint="@string/enter_action_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_attack_bonus_title"
+                android:id="@+id/textView_action_attack_bonus"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_action_attack_bonus"
+                android:hint="@string/enter_attack_bonus"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_dc_title"
+                android:id="@+id/textView_action_DC"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_action_DC"
+                android:hint="@string/enter_action_DC"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_description_title"
+                android:id="@+id/textView_action_desc"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_action_desc"
+                android:hint="@string/enter_action_description"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_item_armor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/armor_name_title"
+                android:id="@+id/textView_armor_name"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_armor_name"
+                android:hint="@string/enter_armor_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/armor_AC_title"
+                android:id="@+id/textView_armor_AC"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_armor_AC"
+                android:hint="@string/enter_armor_ac"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/armor_description_title"
+                android:id="@+id/textView_armor_desc"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_armor_desc"
+                android:hint="@string/enter_armor_desc"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_item_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gold_title"
+                android:id="@+id/textView_gold"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_gold"
+                android:hint="@string/enter_gold"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/silver_title"
+                android:id="@+id/textView_silver"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_silver"
+                android:hint="@string/enter_silver"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/copper_title"
+                android:id="@+id/textView_copper"
+                android:layout_gravity="left|top"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_copper"
+                android:hint="@string/enter_copper"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

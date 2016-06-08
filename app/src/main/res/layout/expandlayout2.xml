@@ -121,7 +121,7 @@
 
                 <ImageButton
                     android:id="@+id/button_str"
-                    android:src="@drawable/ability_shape_str"
+                    app:srcCompat="@drawable/vector_ability_shape_str"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -132,7 +132,7 @@
 
                 <ImageButton
                     android:id="@+id/button_dex"
-                    android:src="@drawable/ability_shape_dex"
+                    app:srcCompat="@drawable/vector_ability_shape_dex"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -143,7 +143,7 @@
 
                 <ImageButton
                     android:id="@+id/button_con"
-                    android:src="@drawable/ability_shape_con"
+                    app:srcCompat="@drawable/vector_ability_shape_con"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -163,7 +163,7 @@
 
                 <ImageButton
                     android:id="@+id/button_int"
-                    android:src="@drawable/ability_shape_int"
+                    app:srcCompat="@drawable/vector_ability_shape_int"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -174,7 +174,7 @@
 
                 <ImageButton
                     android:id="@+id/button_wis"
-                    android:src="@drawable/ability_shape_wis"
+                    app:srcCompat="@drawable/vector_ability_shape_wis"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -185,7 +185,7 @@
 
                 <ImageButton
                     android:id="@+id/button_cha"
-                    android:src="@drawable/ability_shape_cha"
+                    app:srcCompat="@drawable/vector_ability_shape_cha"
                     android:scaleType="fitCenter"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
