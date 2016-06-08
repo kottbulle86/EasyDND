@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -21,6 +22,7 @@ import android.widget.Spinner;
 import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
 
 public class AddItemFragment extends DialogFragment {
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -48,6 +50,8 @@ public class AddItemFragment extends DialogFragment {
                 actionLayout.setVisibility(View.GONE);
                 LinearLayout armorLayout = (LinearLayout) linearview.findViewById(R.id.linearlayout_item_armor);
                 armorLayout.setVisibility(View.GONE);
+                LinearLayout moneyLayout = (LinearLayout) linearview.findViewById(R.id.linearlayout_item_money);
+                moneyLayout.setVisibility(View.GONE);
                 switch (i) {
                     case 0:
                         weaponLayout.setVisibility(View.VISIBLE);
@@ -63,6 +67,10 @@ public class AddItemFragment extends DialogFragment {
                         break;
                     case 3:
                         armorLayout.setVisibility(View.VISIBLE);
+                        k[0] = i;
+                        break;
+                    case 4:
+                        moneyLayout.setVisibility(View.VISIBLE);
                         k[0] = i;
                         break;
                 }
@@ -120,6 +128,31 @@ public class AddItemFragment extends DialogFragment {
 
                                 newActionFragment(fragNumber, actionName, actionAtt, actionDC, actionDesc);
                                 break;
+                            case 3:
+                                EditText armorNameEdit = (EditText) linearview.findViewById(R.id.editText_armor_name);
+                                EditText armorACEdit = (EditText) linearview.findViewById(R.id.editText_armor_AC);
+                                EditText armorDescEdit = (EditText) linearview.findViewById(R.id.editText_armor_desc);
+
+                                String armorName = String.valueOf(armorNameEdit.getText());
+                                String armorAC = String.valueOf(armorACEdit.getText());
+                                String armorDesc = String.valueOf(armorDescEdit.getText());
+
+                                newArmorFragment(fragNumber, armorName, armorAC, armorDesc);
+                                break;
+                            case 4:
+                                EditText goldEdit = (EditText) linearview.findViewById(R.id.editText_gold);
+                                EditText silverEdit = (EditText) linearview.findViewById(R.id.editText_silver);
+                                EditText copperEdit = (EditText) linearview.findViewById(R.id.editText_copper);
+
+                                String gold = String.valueOf(goldEdit.getText());
+                                String silver = String.valueOf(silverEdit.getText());
+                                String copper = String.valueOf(copperEdit.getText());
+
+                                newMoneyFragment(fragNumber, gold, silver, copper);
+                                break;
+                        }
+                        if (fragNumber > 20) {
+                            fragNumber = 0;
                         }
                         fragNumber++;
                         saveCharacterDataInt("fragNumber", fragNumber);
@@ -143,6 +176,7 @@ public class AddItemFragment extends DialogFragment {
         bundle.putString("weaponAttack", att);
         bundle.putString("weaponDamage", dmg);
         bundle.putString("weaponDescription", desc);
+        bundle.putString("fragtag", fragName);
         Fragment newFragment = new ItemWeaponFragment();
         newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -160,6 +194,7 @@ public class AddItemFragment extends DialogFragment {
         bundle.putString("spellAttack", att);
         bundle.putString("spellDC", dc);
         bundle.putString("spellDescription", desc);
+        bundle.putString("fragtag", fragName);
         Fragment newFragment = new ItemSpellFragment();
         newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -177,7 +212,42 @@ public class AddItemFragment extends DialogFragment {
         bundle.putString("actionAttack", att);
         bundle.putString("actionDC", dc);
         bundle.putString("actionDescription", desc);
+        bundle.putString("fragtag", fragName);
         Fragment newFragment = new ItemActionFragment();
+        newFragment.setArguments(bundle);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.add(fragment_container, newFragment, fragName);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    private void newArmorFragment(int i, String name, String AC, String desc) {
+        // Create new fragment and transaction
+        String fragName = "fragName"  + String.valueOf(i);
+        Bundle bundle = new Bundle();
+        bundle.putString("armorName", name);
+        bundle.putString("armorAC", AC);
+        bundle.putString("armorDescription", desc);
+        bundle.putString("fragtag", fragName);
+        Fragment newFragment = new ItemArmorFragment();
+        newFragment.setArguments(bundle);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.add(fragment_container, newFragment, fragName);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    private void newMoneyFragment(int i, String gold, String silver, String copper) {
+        // Create new fragment and transaction
+        String fragName = "fragName"  + String.valueOf(i);
+        Bundle bundle = new Bundle();
+        bundle.putString("gold", gold);
+        bundle.putString("silver", silver);
+        bundle.putString("copper", copper);
+        bundle.putString("fragtag", fragName);
+        Fragment newFragment = new ItemMoneyFragment();
         newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.add(fragment_container, newFragment, fragName);

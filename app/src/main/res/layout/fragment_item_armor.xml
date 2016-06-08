@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    android:background="@color/accent_material_light"
-    tools:context=".ItemWeaponFragment">
+    android:background="@android:color/holo_green_dark"
+    tools:context=".ItemArmorFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_margin="10dp"
-            app:srcCompat="@drawable/vector_swords"/>
+            app:srcCompat="@drawable/vector_shield"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:paddingTop="10dp">
 
             <TextView
-                android:id="@+id/fragment_item_weapon_name"
+                android:id="@+id/fragment_item_armor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:textSize="20sp"
@@ -38,30 +38,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_attack_title"
+                    android:id="@+id/fragment_item_action_armor_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
                     android:textSize="20sp"
-                    android:text="@string/hit_title"/>
+                    android:text="@string/ac_title"/>
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_attack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/fragment_item_weapon_damage_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
-                    android:textSize="20sp"
-                    android:text="@string/dmg_title"/>
-
-                <TextView
-                    android:id="@+id/fragment_item_weapon_damage"
+                    android:id="@+id/fragment_item_armor_AC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp" />
@@ -75,7 +60,7 @@
                 android:paddingBottom="10dp">
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_description_title"
+                    android:id="@+id/fragment_item_armor_description_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="5dp"
@@ -83,7 +68,7 @@
                     android:text="@string/description_title"/>
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_description"
+                    android:id="@+id/fragment_item_armor_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"/>

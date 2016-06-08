@@ -3,19 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:orientation="vertical"
-    android:background="#7b0006"
+    android:background="@color/colorAccent"
     tools:context=".ItemActionFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_margin="10dp"
             app:srcCompat="@drawable/vector_eagle"/>
 
@@ -41,6 +41,7 @@
                     android:id="@+id/fragment_item_action_attack_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
                     android:textSize="20sp"
                     android:text="@string/hit_title"/>
 
@@ -54,6 +55,7 @@
                     android:id="@+id/fragment_item_action_dc_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:textSize="20sp"
                     android:text="@string/dc_title"/>
@@ -66,29 +68,36 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/fragment_item_action_description_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp"
+                    android:text="@string/description_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_action_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/remove_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">
-
-        <TextView
-            android:id="@+id/fragment_item_action_description_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"
-            android:text="@string/description_title"/>
-
-        <TextView
-            android:id="@+id/fragment_item_action_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"/>
+        </FrameLayout>
 
     </LinearLayout>
 

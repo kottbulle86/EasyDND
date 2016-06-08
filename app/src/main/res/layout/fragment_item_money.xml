@@ -4,20 +4,20 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    android:background="@color/accent_material_light"
-    tools:context=".ItemWeaponFragment">
+    android:orientation="horizontal"
+    android:background="#ac9811"
+    tools:context=".ItemMoneyFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
-            app:srcCompat="@drawable/vector_swords"/>
+            app:srcCompat="@drawable/vector_ability_shape"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,11 +26,12 @@
             android:paddingTop="10dp">
 
             <TextView
-                android:id="@+id/fragment_item_weapon_name"
+                android:id="@+id/fragment_item_currency_title"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:textSize="20sp"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:text="@string/currency_title"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -38,67 +39,60 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_attack_title"
+                    android:id="@+id/fragment_item_gold_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
                     android:textSize="20sp"
-                    android:text="@string/hit_title"/>
+                    android:text="@string/gp_title"/>
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_attack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/fragment_item_weapon_damage_title"
+                    android:id="@+id/fragment_item_gold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
-                    android:textSize="20sp"
-                    android:text="@string/dmg_title"/>
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/fragment_item_weapon_damage"
+                    android:id="@+id/fragment_item_silver_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/sp_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_silver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fragment_item_copper_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/cp_title"/>
+
+                <TextView
+                    android:id="@+id/fragment_item_copper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp">
-
-                <TextView
-                    android:id="@+id/fragment_item_weapon_description_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="5dp"
-                    android:textSize="16sp"
-                    android:text="@string/description_title"/>
-
-                <TextView
-                    android:id="@+id/fragment_item_weapon_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/remove_button_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
-
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/remove_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
 </LinearLayout>
