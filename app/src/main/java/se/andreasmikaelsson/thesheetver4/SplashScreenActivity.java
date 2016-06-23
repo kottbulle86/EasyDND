@@ -10,7 +10,9 @@ import android.widget.ImageView;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    /** Duration of wait **/
+    /**
+     * Duration of wait
+     **/
     private final int SPLASH_DISPLAY_LENGTH = 1000;
 
     @Override
@@ -25,11 +27,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
+                Intent mainIntent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 SplashScreenActivity.this.startActivity(mainIntent);
                 SplashScreenActivity.this.finish();
             }

@@ -6,7 +6,7 @@
     android:layout_margin="5dp"
     android:orientation="vertical"
     android:background="@android:color/holo_purple"
-    tools:context=".ItemSpellFragment">
+    tools:context=".fragments.ItemSpellFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

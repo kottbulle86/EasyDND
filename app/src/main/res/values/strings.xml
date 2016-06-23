@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TheSheetver4</string>
+    <string name="app_name">The Player Sheet</string>
     <string name="image1">image1</string>
     <string name="image2">image2</string>
     <string name="image3">image3</string>
@@ -21,7 +21,7 @@
     <string name="charactertitle_race">Race</string>
     <string name="charactertitle_subrace">Subrace</string>
     <string name="charactertitle_class">Class</string>
-    <string name="charactertitle_background">Background</string>
+    <string name="charactertitle_background">Backgr.</string>
     <string name="charactertitle_traits">Traits</string>
     <string name="charactertitle_ideals">Ideals</string>
     <string name="charactertitle_bonds">Bonds</string>
@@ -347,13 +347,20 @@
     <string name="expand3_infotext">Forgot your dice? No problem, this tab is a dice simulator where you can throw some dice! Choose a die and press the dice button or shake to throw! </string>
 
     <string name="saved_expand4_infocheckbox">se.andreasmikaelsson.thesheetver4.Expand4InfoCheckbox</string>
-    <string name="expand4_infotext">This does nothing yet...</string>
+    <string name="expand4_infotext">Combat! Your HP, initiative, speed and other things are seen here. Also, there is the option to add items and remove them.</string>
 
     <string name="saved_whisper_infocheckbox">se.andreasmikaelsson.thesheetver4.WhisperInfoCheckbox</string>
     <string name="whisper_infotext">This is the whisper chat, here you can connect to other the Sheet users and send them whispers. The chat uses android NSD (network service discovery) to connect to other devices on the same wifi. One acts as a host (register) and the rest discover it and connect (the host also connects). Viola!</string>
     <string name="info_checkbox_text">Don\'t show this again</string>
 
     <!-- item fragment strings -->
+    <string name="saved_maxHP">se.andreasmikaelsson.thesheetver4.MaxHP</string>
+    <string name="saved_tempHP">se.andreasmikaelsson.thesheetver4.TempHP</string>
+    <string name="saved_curHP">se.andreasmikaelsson.thesheetver4.CurHP</string>
+    <string name="saved_AC">se.andreasmikaelsson.thesheetver4.AC</string>
+    <string name="saved_init">se.andreasmikaelsson.thesheetver4.Init</string>
+    <string name="saved_speed">se.andreasmikaelsson.thesheetver4.Speed</string>
+
     <string name="HP_title">Max HP / Temp HP / Current HP</string>
     <string name="enter_max">Enter max</string>
     <string name="enter_temp">temp</string>
@@ -416,8 +423,5 @@
     <string name="gp_title">GP:</string>
     <string name="sp_title">SP:</string>
     <string name="cp_title">CP:</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

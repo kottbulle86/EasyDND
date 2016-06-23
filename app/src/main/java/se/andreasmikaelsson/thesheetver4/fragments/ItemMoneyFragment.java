@@ -1,4 +1,4 @@
-package se.andreasmikaelsson.thesheetver4;
+package se.andreasmikaelsson.thesheetver4.fragments;
 
 
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +15,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
+import se.andreasmikaelsson.thesheetver4.MainActivity;
+import se.andreasmikaelsson.thesheetver4.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ItemArmorFragment extends Fragment {
+public class ItemMoneyFragment extends Fragment {
 
 
-    public ItemArmorFragment() {
+    public ItemMoneyFragment() {
         // Required empty public constructor
     }
 
@@ -34,7 +34,7 @@ public class ItemArmorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        LinearLayout linearview = (LinearLayout) inflater.inflate(R.layout.fragment_item_armor, container, false);
+        LinearLayout linearview = (LinearLayout) inflater.inflate(R.layout.fragment_item_money, container, false);
 
         //Create remove item button, generate ID and store with fragment tag
         String fragName = getArguments().getString("fragtag");
@@ -43,7 +43,7 @@ public class ItemArmorFragment extends Fragment {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.MATCH_PARENT);
         removeActionButton.setBackgroundColor(Color.TRANSPARENT);
         params.gravity = Gravity.END;
-        params.setMargins(0,0,20,0);
+        params.setMargins(0, 0, 20, 0);
         removeActionButton.setText("X");
         removeActionButton.setTextSize(16);
         removeActionButton.setLayoutParams(params);
@@ -56,15 +56,15 @@ public class ItemArmorFragment extends Fragment {
         editor.putInt(fragName, removeActionButtonID);
         editor.apply();
 
-        String bundleName = getArguments().getString("armorName");
-        TextView actionName = (TextView) linearview.findViewById(R.id.fragment_item_armor_name);
-        actionName.setText(bundleName);
-        String bundleAttack = getArguments().getString("armorAC");
-        TextView actionAttack = (TextView) linearview.findViewById(R.id.fragment_item_armor_AC);
-        actionAttack.setText(bundleAttack);
-        String bundleDesc = getArguments().getString("armorDescription");
-        TextView actionDesc = (TextView) linearview.findViewById(R.id.fragment_item_armor_description);
-        actionDesc.setText(bundleDesc);
+        String bundleGold = getArguments().getString("gold");
+        TextView actionName = (TextView) linearview.findViewById(R.id.fragment_item_gold);
+        actionName.setText(bundleGold);
+        String bundleSilver = getArguments().getString("silver");
+        TextView actionAttack = (TextView) linearview.findViewById(R.id.fragment_item_silver);
+        actionAttack.setText(bundleSilver);
+        String bundleCopper = getArguments().getString("copper");
+        TextView actionDesc = (TextView) linearview.findViewById(R.id.fragment_item_copper);
+        actionDesc.setText(bundleCopper);
 
         return linearview;
     }
@@ -73,7 +73,7 @@ public class ItemArmorFragment extends Fragment {
     public void onStart() {
         super.onStart();
         String fragName = getArguments().getString("fragtag");
-        ((MainActivity)getActivity()).setupRemoveItemButton(fragName);
+        ((MainActivity) getActivity()).setupRemoveItemButton(fragName);
     }
 
 }

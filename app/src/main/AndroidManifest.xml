@@ -25,7 +25,7 @@
         <activity android:name=".MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".NsdChatActivity" />
+        <activity android:name=".nsd.NsdChatActivity" />
     </application>
 
 </manifest>

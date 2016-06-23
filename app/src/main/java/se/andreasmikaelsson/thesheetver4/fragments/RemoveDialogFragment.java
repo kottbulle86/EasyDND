@@ -1,4 +1,4 @@
-package se.andreasmikaelsson.thesheetver4;
+package se.andreasmikaelsson.thesheetver4.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
-import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import se.andreasmikaelsson.thesheetver4.R;
 
 public class RemoveDialogFragment extends DialogFragment {
     @Override

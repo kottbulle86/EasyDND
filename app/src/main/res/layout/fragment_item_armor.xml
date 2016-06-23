@@ -6,7 +6,7 @@
     android:layout_margin="5dp"
     android:orientation="vertical"
     android:background="@android:color/holo_green_dark"
-    tools:context=".ItemArmorFragment">
+    tools:context=".fragments.ItemArmorFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

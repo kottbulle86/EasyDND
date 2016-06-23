@@ -1,4 +1,4 @@
-package se.andreasmikaelsson.thesheetver4;
+package se.andreasmikaelsson.thesheetver4.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import java.util.Objects;
 import java.util.Random;
+
+import se.andreasmikaelsson.thesheetver4.R;
 
 import static se.andreasmikaelsson.thesheetver4.R.array.Cha_Skills;
 import static se.andreasmikaelsson.thesheetver4.R.array.Dex_Skills;
@@ -173,7 +175,7 @@ public class AbilityDialogFragment extends DialogFragment {
                 skillScoreInt += pbInt;
                 skillsScores[i] = String.valueOf(skillScoreInt);
                 skillsNameArrayMod[i] = skillsNameArray[i].replace("x", skillsScores[i]);
-            }else {
+            } else {
                 checkedSkills[i] = false;
                 skillsScores[i] = String.valueOf(skillScoreInt);
                 skillsNameArrayMod[i] = skillsNameArray[i].replace("x", skillsScores[i]);
@@ -256,8 +258,7 @@ public class AbilityDialogFragment extends DialogFragment {
         });
 
         Button randomRoll = (Button) view.findViewById(R.id.button_roll_abilityscore);
-        randomRoll.setOnClickListener(new View.OnClickListener()
-        {
+        randomRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int idx1 = new Random().nextInt(6);
@@ -276,26 +277,26 @@ public class AbilityDialogFragment extends DialogFragment {
         final boolean[] finalCheckedSkills = checkedSkills;
         final String[] finalSkillsKeyArrayB = skillsKeyArrayB;
         builder.setView(view)
-            .setTitle(Title)
-            .setMultiChoiceItems(skillsNameArrayMod, checkedSkills,
-                new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which,
-                                        boolean isChecked) {
-                        if (isChecked) {
-                            finalCheckedSkills[which] = true;
-                        } else if (!isChecked) {
-                            finalCheckedSkills[which] = false;
-                        }
-                    }
-                })
+                .setTitle(Title)
+                .setMultiChoiceItems(skillsNameArrayMod, checkedSkills,
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which,
+                                                boolean isChecked) {
+                                if (isChecked) {
+                                    finalCheckedSkills[which] = true;
+                                } else if (!isChecked) {
+                                    finalCheckedSkills[which] = false;
+                                }
+                            }
+                        })
                 .setPositiveButton(R.string.ok_update, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // OK press
                         for (int i = 0; i < finalCheckedSkills.length; i++) {
                             if (finalCheckedSkills[i]) {
                                 saveCharacterDataBoolean(finalSkillsKeyArrayB[i], true);
-                            }else {
+                            } else {
                                 saveCharacterDataBoolean(finalSkillsKeyArrayB[i], false);
                             }
                         }
@@ -358,6 +359,7 @@ public class AbilityDialogFragment extends DialogFragment {
         editor.putBoolean(key, value);
         editor.apply();
     }
+
     public boolean loadCharacterDataBoolean(String key) {
 
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -371,6 +373,7 @@ public class AbilityDialogFragment extends DialogFragment {
         editor.putInt(key, value);
         editor.apply();
     }
+
     public int loadCharacterDataInt(String key, int defaultValueInt) {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getInt(key, defaultValueInt);
@@ -380,6 +383,7 @@ public class AbilityDialogFragment extends DialogFragment {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getString(key, defaultValueString);
     }
+
     public void saveCharacterDataString(String key, String value) {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

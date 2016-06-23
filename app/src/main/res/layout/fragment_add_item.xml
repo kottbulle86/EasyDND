@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/add_item_background"
-    tools:context=".AddItemFragment">
+    tools:context=".fragments.AddItemFragment">
 
     <TextView
         android:layout_width="wrap_content"

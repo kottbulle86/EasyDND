@@ -6,7 +6,7 @@
     android:layout_margin="5dp"
     android:orientation="horizontal"
     android:background="#ac9811"
-    tools:context=".ItemMoneyFragment">
+    tools:context=".fragments.ItemMoneyFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"

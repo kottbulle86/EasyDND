@@ -1,4 +1,4 @@
-package se.andreasmikaelsson.thesheetver4;
+package se.andreasmikaelsson.thesheetver4.fragments;
 
 
 import android.app.Dialog;
@@ -18,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import se.andreasmikaelsson.thesheetver4.R;
 
 import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
 
@@ -170,7 +172,7 @@ public class AddItemFragment extends DialogFragment {
 
     private void newWeaponFragment(int i, String name, String att, String dmg, String desc) {
         // Create new fragment and transaction
-        String fragName = "fragName"  + String.valueOf(i);
+        String fragName = "fragName" + String.valueOf(i);
         Bundle bundle = new Bundle();
         bundle.putString("weaponName", name);
         bundle.putString("weaponAttack", att);
@@ -188,7 +190,7 @@ public class AddItemFragment extends DialogFragment {
 
     private void newSpellFragment(int i, String name, String att, String dc, String desc) {
         // Create new fragment and transaction
-        String fragName = "fragName"  + String.valueOf(i);
+        String fragName = "fragName" + String.valueOf(i);
         Bundle bundle = new Bundle();
         bundle.putString("spellName", name);
         bundle.putString("spellAttack", att);
@@ -206,7 +208,7 @@ public class AddItemFragment extends DialogFragment {
 
     private void newActionFragment(int i, String name, String att, String dc, String desc) {
         // Create new fragment and transaction
-        String fragName = "fragName"  + String.valueOf(i);
+        String fragName = "fragName" + String.valueOf(i);
         Bundle bundle = new Bundle();
         bundle.putString("actionName", name);
         bundle.putString("actionAttack", att);
@@ -224,7 +226,7 @@ public class AddItemFragment extends DialogFragment {
 
     private void newArmorFragment(int i, String name, String AC, String desc) {
         // Create new fragment and transaction
-        String fragName = "fragName"  + String.valueOf(i);
+        String fragName = "fragName" + String.valueOf(i);
         Bundle bundle = new Bundle();
         bundle.putString("armorName", name);
         bundle.putString("armorAC", AC);
@@ -241,7 +243,7 @@ public class AddItemFragment extends DialogFragment {
 
     private void newMoneyFragment(int i, String gold, String silver, String copper) {
         // Create new fragment and transaction
-        String fragName = "fragName"  + String.valueOf(i);
+        String fragName = "fragName" + String.valueOf(i);
         Bundle bundle = new Bundle();
         bundle.putString("gold", gold);
         bundle.putString("silver", silver);
@@ -262,6 +264,7 @@ public class AddItemFragment extends DialogFragment {
         editor.putInt(key, value);
         editor.apply();
     }
+
     public int loadCharacterDataInt(String key, int defaultValueInt) {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getInt(key, defaultValueInt);

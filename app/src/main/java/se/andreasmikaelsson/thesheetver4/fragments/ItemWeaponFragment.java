@@ -1,4 +1,4 @@
-package se.andreasmikaelsson.thesheetver4;
+package se.andreasmikaelsson.thesheetver4.fragments;
 
 
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
+import se.andreasmikaelsson.thesheetver4.MainActivity;
+import se.andreasmikaelsson.thesheetver4.R;
 
 
 /**
@@ -43,7 +43,7 @@ public class ItemWeaponFragment extends Fragment {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.MATCH_PARENT);
         removeActionButton.setBackgroundColor(Color.TRANSPARENT);
         params.gravity = Gravity.END;
-        params.setMargins(0,0,20,0);
+        params.setMargins(0, 0, 20, 0);
         removeActionButton.setText("X");
         removeActionButton.setTextSize(16);
         removeActionButton.setLayoutParams(params);
@@ -76,7 +76,7 @@ public class ItemWeaponFragment extends Fragment {
     public void onStart() {
         super.onStart();
         String fragName = getArguments().getString("fragtag");
-        ((MainActivity)getActivity()).setupRemoveItemButton(fragName);
+        ((MainActivity) getActivity()).setupRemoveItemButton(fragName);
     }
 
 }

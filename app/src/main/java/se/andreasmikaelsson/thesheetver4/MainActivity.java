@@ -11,8 +11,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -35,7 +33,11 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-import static se.andreasmikaelsson.thesheetver4.R.id.fragment_container;
+import se.andreasmikaelsson.thesheetver4.fragments.AbilityDialogFragment;
+import se.andreasmikaelsson.thesheetver4.fragments.AddItemFragment;
+import se.andreasmikaelsson.thesheetver4.fragments.InfoDialogFragment;
+import se.andreasmikaelsson.thesheetver4.fragments.RemoveDialogFragment;
+import se.andreasmikaelsson.thesheetver4.nsd.NsdChatActivity;
 
 /*
 MainActivity - a menu activity that also holds all expandable/collapsable views:
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             showInfoFragment(titleKey, title, infoTextKey, infoText);
         }
 
-        //fab for NsdChatActivity (whisper)
+        //floating action button for NsdChatActivity (whisper)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +113,128 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupExpand4() {
         Button addItem = (Button) findViewById(R.id.button_add_item);
         addItem.setOnClickListener(this);
+
+        final EditText maxHP = (EditText) findViewById(R.id.max_hp_value);
+        final EditText tempHP = (EditText) findViewById(R.id.temp_hp_value);
+        final EditText curHP = (EditText) findViewById(R.id.current_hp_value);
+        final EditText AC = (EditText) findViewById(R.id.AC_value);
+        final EditText init = (EditText) findViewById(R.id.Init_value);
+        final EditText speed = (EditText) findViewById(R.id.speed_value);
+
+        assert maxHP != null;
+        maxHP.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String maxHPValue = maxHP.getEditableText().toString();
+                String maxHPKey = getString(R.string.saved_maxHP);
+                saveCharacterDataString(maxHPKey, maxHPValue);
+            }
+        });
+        assert tempHP != null;
+        tempHP.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String tempHPValue = tempHP.getEditableText().toString();
+                String tempHPKey = getString(R.string.saved_tempHP);
+                saveCharacterDataString(tempHPKey, tempHPValue);
+            }
+        });
+        assert curHP != null;
+        curHP.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String curHPValue = curHP.getEditableText().toString();
+                String curHPKey = getString(R.string.saved_curHP);
+                saveCharacterDataString(curHPKey, curHPValue);
+            }
+        });
+        assert AC != null;
+        AC.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String ACValue = AC.getEditableText().toString();
+                String ACKey = getString(R.string.saved_AC);
+                saveCharacterDataString(ACKey, ACValue);
+            }
+        });
+        assert init != null;
+        init.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String initValue = init.getEditableText().toString();
+                String initKey = getString(R.string.saved_init);
+                saveCharacterDataString(initKey, initValue);
+            }
+        });
+        assert speed != null;
+        speed.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String speedValue = speed.getEditableText().toString();
+                String speedKey = getString(R.string.saved_speed);
+                saveCharacterDataString(speedKey, speedValue);
+            }
+        });
     }
 
     private void itemFragment() {
@@ -175,79 +299,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (xpInt < 300) {
                         lvlString = "1";
                         pbString = "2";
-                    }
-                    else if (xpInt < 900) {
+                    } else if (xpInt < 900) {
                         lvlString = "2";
                         pbString = "2";
-                    }
-                    else if (xpInt < 2700) {
+                    } else if (xpInt < 2700) {
                         lvlString = "3";
                         pbString = "2";
-                    }
-                    else if (xpInt < 6500) {
+                    } else if (xpInt < 6500) {
                         lvlString = "4";
                         pbString = "2";
-                    }
-                    else if (xpInt < 14000) {
+                    } else if (xpInt < 14000) {
                         lvlString = "5";
                         pbString = "3";
-                    }
-                    else if (xpInt < 23000) {
+                    } else if (xpInt < 23000) {
                         lvlString = "6";
                         pbString = "3";
-                    }
-                    else if (xpInt < 34000) {
+                    } else if (xpInt < 34000) {
                         lvlString = "7";
                         pbString = "3";
-                    }
-                    else if (xpInt < 48000) {
+                    } else if (xpInt < 48000) {
                         lvlString = "8";
                         pbString = "3";
-                    }
-                    else if (xpInt < 64000) {
+                    } else if (xpInt < 64000) {
                         lvlString = "9";
                         pbString = "4";
-                    }
-                    else if (xpInt < 85000) {
+                    } else if (xpInt < 85000) {
                         lvlString = "10";
                         pbString = "4";
-                    }
-                    else if (xpInt < 100000) {
+                    } else if (xpInt < 100000) {
                         lvlString = "11";
                         pbString = "4";
-                    }
-                    else if (xpInt < 120000) {
+                    } else if (xpInt < 120000) {
                         lvlString = "12";
                         pbString = "4";
-                    }
-                    else if (xpInt < 140000) {
+                    } else if (xpInt < 140000) {
                         lvlString = "13";
                         pbString = "5";
-                    }
-                    else if (xpInt < 165000) {
+                    } else if (xpInt < 165000) {
                         lvlString = "14";
                         pbString = "5";
-                    }
-                    else if (xpInt < 195000) {
+                    } else if (xpInt < 195000) {
                         lvlString = "15";
                         pbString = "5";
-                    }
-                    else if (xpInt < 225000) {
+                    } else if (xpInt < 225000) {
                         lvlString = "16";
                         pbString = "5";
-                    }
-                    else if (xpInt < 265000) {
+                    } else if (xpInt < 265000) {
                         lvlString = "17";
                         pbString = "6";
-                    }
-                    else if (xpInt < 305000) {
+                    } else if (xpInt < 305000) {
                         lvlString = "18";
                         pbString = "6";
-                    }
-                    else if (xpInt < 355000) {
+                    } else if (xpInt < 355000) {
                         lvlString = "19";
                         pbString = "6";
-                    }else if (xpInt >= 355000) {
+                    } else if (xpInt >= 355000) {
                         lvlString = "20";
                         pbString = "6";
                     }
@@ -280,7 +386,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             float y = se.values[1];
             float z = se.values[2];
             mAccelLast = mAccelCurrent;
-            mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+            mAccelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
 
@@ -504,20 +610,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setupExpandHeight() {
         int displayHeight = getWindowManager().getDefaultDisplay().getHeight();
 
-        FrameLayout expand_layout1 = (FrameLayout)findViewById(R.id.expandlayout1);
-        FrameLayout expand_layout2 = (FrameLayout)findViewById(R.id.expandlayout2);
-        FrameLayout expand_layout3 = (FrameLayout)findViewById(R.id.expandlayout3);
-        FrameLayout expand_layout4 = (FrameLayout)findViewById(R.id.expandlayout4);
+        FrameLayout expand_layout1 = (FrameLayout) findViewById(R.id.expandlayout1);
+        FrameLayout expand_layout2 = (FrameLayout) findViewById(R.id.expandlayout2);
+        FrameLayout expand_layout3 = (FrameLayout) findViewById(R.id.expandlayout3);
+        FrameLayout expand_layout4 = (FrameLayout) findViewById(R.id.expandlayout4);
 
         expand_layout1.getLayoutParams().height = displayHeight;
         expand_layout2.getLayoutParams().height = displayHeight;
         expand_layout3.getLayoutParams().height = displayHeight;
         expand_layout4.getLayoutParams().height = displayHeight;
 
-        ImageView expand_background1 = (ImageView)findViewById(R.id.expand1_background);
-        ImageView expand_background2 = (ImageView)findViewById(R.id.expand2_background);
-        ImageView expand_background3 = (ImageView)findViewById(R.id.expand3_background);
-        ImageView expand_background4 = (ImageView)findViewById(R.id.expand4_background);
+        ImageView expand_background1 = (ImageView) findViewById(R.id.expand1_background);
+        ImageView expand_background2 = (ImageView) findViewById(R.id.expand2_background);
+        ImageView expand_background3 = (ImageView) findViewById(R.id.expand3_background);
+        ImageView expand_background4 = (ImageView) findViewById(R.id.expand4_background);
 
         expand_background1.getLayoutParams().height = displayHeight;
         expand_background2.getLayoutParams().height = displayHeight;
@@ -628,9 +734,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //No default value needed with Hint instead... Set to null value instead.
         String nameDefaultValue = getResources().getString(R.string.charactername_null);
-        //int raceDefaultValue = Integer.parseInt(getResources().getString(R.string.characterrace_null));
-        //int classDefaultValue = Integer.parseInt(getResources().getString(R.string.characterclass_null));
-        //int backgroundDefaultValue = Integer.parseInt(getResources().getString(R.string.characterbackground_null));
         String traitsDefaultValue = getResources().getString(R.string.charactertraits_null);
         String idealsDefaultValue = getResources().getString(R.string.characterideals_null);
         String bondsDefaultValue = getResources().getString(R.string.characterbonds_null);
@@ -694,11 +797,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (xpValue != 0) {
             assert xpEditText != null;
             xpEditText.setText(String.valueOf(xpValue));
-        }else {
+        } else {
             assert xpEditText != null;
             xpEditText.setText("");
         }
 
+        //Expand4
+        EditText maxHP = (EditText) findViewById(R.id.max_hp_value);
+        EditText tempHP = (EditText) findViewById(R.id.temp_hp_value);
+        EditText curHP = (EditText) findViewById(R.id.current_hp_value);
+        EditText AC = (EditText) findViewById(R.id.AC_value);
+        EditText init = (EditText) findViewById(R.id.Init_value);
+        EditText speed = (EditText) findViewById(R.id.speed_value);
+
+        String maxHPKey = getString(R.string.saved_maxHP);
+        String tempHPKey = getString(R.string.saved_tempHP);
+        String curHPKey = getString(R.string.saved_curHP);
+        String ACKey = getString(R.string.saved_AC);
+        String initKey = getString(R.string.saved_init);
+        String speedKey = getString(R.string.saved_speed);
+
+        String maxHPValue = loadCharacterDataString(maxHPKey, "");
+        String tempHPValue = loadCharacterDataString(tempHPKey, "");
+        String curHPValue = loadCharacterDataString(curHPKey, "");
+        String ACValue = loadCharacterDataString(ACKey, "");
+        String initValue = loadCharacterDataString(initKey, "");
+        String speedValue = loadCharacterDataString(speedKey, "");
+
+        maxHP.setText(maxHPValue);
+        tempHP.setText(tempHPValue);
+        curHP.setText(curHPValue);
+        AC.setText(ACValue);
+        init.setText(initValue);
+        speed.setText(speedValue);
     }
 
     public String loadCharacterDataString(String key, String defaultValueString) {
@@ -727,13 +858,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Older versions of android (pre API 21) cancel animations for views with a height of 0.
         v.getLayoutParams().height = 1;
         v.setVisibility(View.VISIBLE);
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
                 v.getLayoutParams().height = interpolatedTime == 1
                         ? ActionBar.LayoutParams.WRAP_CONTENT
-                        : (int)(targetHeight * interpolatedTime);
+                        : (int) (targetHeight * interpolatedTime);
                 v.requestLayout();
             }
 
@@ -744,21 +874,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
 
         // 1dp/ms
-        a.setDuration((int)(targetHeight / v.getContext().getResources().getDisplayMetrics().density));
+        a.setDuration((int) (targetHeight / v.getContext().getResources().getDisplayMetrics().density));
         v.startAnimation(a);
     }
 
     public static void collapse(final View v) {
         final int initialHeight = v.getMeasuredHeight();
 
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if(interpolatedTime == 1){
+                if (interpolatedTime == 1) {
                     v.setVisibility(View.GONE);
-                }else{
-                    v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                } else {
+                    v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
                     v.requestLayout();
                 }
             }
@@ -770,14 +899,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
 
         // 1dp/ms
-        a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
+        a.setDuration((int) (initialHeight / v.getContext().getResources().getDisplayMetrics().density));
         v.startAnimation(a);
 
-    }
-
-    private void clearSharedPref() {
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        sharedPref.edit().clear().apply();
     }
 
     @Override

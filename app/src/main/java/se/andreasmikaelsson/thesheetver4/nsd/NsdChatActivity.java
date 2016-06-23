@@ -1,5 +1,5 @@
-package se.andreasmikaelsson.thesheetver4;
-import android.app.Activity;
+package se.andreasmikaelsson.thesheetver4.nsd;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.nsd.NsdServiceInfo;
@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import se.andreasmikaelsson.thesheetver4.NsdHelper;
+import se.andreasmikaelsson.thesheetver4.R;
+import se.andreasmikaelsson.thesheetver4.fragments.InfoDialogFragment;
 
 public class NsdChatActivity extends AppCompatActivity {
     NsdHelper mNsdHelper;
@@ -66,18 +67,20 @@ public class NsdChatActivity extends AppCompatActivity {
     public void clickAdvertise(View v) {
         Toast toast1 = Toast.makeText(this, "Device registered!", Toast.LENGTH_LONG);
         // Register service
-        if(mConnection.getLocalPort() > -1) {
+        if (mConnection.getLocalPort() > -1) {
             mNsdHelper.registerService(mConnection.getLocalPort());
             toast1.show();
         } else {
             Log.d(TAG, "ServerSocket isn't bound.");
         }
     }
+
     public void clickDiscover(View v) {
         Toast toast2 = Toast.makeText(this, "Searching...", Toast.LENGTH_LONG);
         toast2.show();
         mNsdHelper.discoverServices();
     }
+
     public void clickConnect(View v) {
         NsdServiceInfo service = mNsdHelper.getChosenServiceInfo();
         if (service != null) {
@@ -92,6 +95,7 @@ public class NsdChatActivity extends AppCompatActivity {
             toast4.show();
         }
     }
+
     public void clickSend(View v) {
         EditText messageView = (EditText) this.findViewById(R.id.chatInput);
         if (messageView != null) {
@@ -102,9 +106,11 @@ public class NsdChatActivity extends AppCompatActivity {
             messageView.setText("");
         }
     }
+
     public void addChatLine(String line) {
         mStatusView.append("\n" + line);
     }
+
     @Override
     protected void onStart() {
         Log.d(TAG, "Starting.");
@@ -113,6 +119,7 @@ public class NsdChatActivity extends AppCompatActivity {
         mNsdHelper.initializeNsd();
         super.onStart();
     }
+
     @Override
     protected void onPause() {
         Log.d(TAG, "Pausing.");
@@ -121,6 +128,7 @@ public class NsdChatActivity extends AppCompatActivity {
         }
         super.onPause();
     }
+
     @Override
     protected void onResume() {
         Log.d(TAG, "Resuming.");
@@ -129,6 +137,7 @@ public class NsdChatActivity extends AppCompatActivity {
             mNsdHelper.discoverServices();
         }
     }
+
     // For KitKat and earlier releases, it is necessary to remove the
     // service registration when the application is stopped.  There's
     // no guarantee that the onDestroy() method will be called (we're
@@ -146,6 +155,7 @@ public class NsdChatActivity extends AppCompatActivity {
         mConnection = null;
         super.onStop();
     }
+
     @Override
     protected void onDestroy() {
         Log.d(TAG, "Being destroyed.");

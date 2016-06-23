@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="se.andreasmikaelsson.thesheetver4.RemoveDialogFragment">
+    tools:context=".fragments.RemoveDialogFragment">
 
     <TextView
         android:id="@+id/remove_fragement_textview"
